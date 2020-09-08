@@ -1,0 +1,2599 @@
+% Präambel
+
+\documentclass[a4paper,12pt]{report}
+
+
+% ---- Import Packages ----
+
+
+% Hier sind einige nützliche packages importiert, für genauere Funktion siehe Cheat Sheet
+
+% Define that we want to use English hyphenation
+ 
+% http://mirrors.rit.edu/CTAN/macros/latex/required/babel/base/babel.pdf
+ 
+% Page 18 for list of languages
+ 
+\usepackage[german]{babel}
+ 
+% Use Helvetica instead of the normal sans serif font
+ 
+% Others : 
+ 
+% mathpazo (Palatino (Roman))
+ 
+% mathptmx (Times (Roman))
+ 
+% avant (Avant Garde (Sans Serif))
+ 
+% courier (Courier (Typewriter))
+ 
+% chancery (Zapf Chancery (Roman))
+ 
+% bookman (Bookman (Roman) Avant Garde (Sans Serif) Courier (Typewriter))
+ 
+% newcent (New Century, Avant Garde, Courier)
+ 
+% charter (Charter (Roman))
+ 
+\usepackage[scaled=.92]{helvet}
+ 
+% Improve justification document wide
+ 
+% \usepackage{microtype}
+ 
+ 
+% Used to create filler text
+ 
+\usepackage{blindtext}
+ 
+% Used to include pictures
+ 
+\usepackage{graphicx}
+ 
+% Used to wrap text around pictures
+ 
+\usepackage{wrapfig}
+ 
+% Used to compact lists
+ 
+\usepackage{enumitem}
+ 
+% Used to customize the page layout of your LaTeX documents
+ 
+\usepackage{fancyhdr}
+
+% Von Sven Theorem
+
+\newtheorem{theorem}{Theorem} 
+
+% Verhindert Einrücken
+
+\setlength{\parindent}{0em}
+
+
+
+
+
+% Thomas Package für Pfeile
+
+\usepackage{extpfeil}
+
+
+
+
+
+\usepackage[utf8]{inputenc}
+
+
+
+
+%Und am wichtigsten für uns ist dieses wunderbare Paket mit allen Mathematischen Formeln die man sich wünschen kann
+
+\usepackage{amsmath}
+
+\usepackage{amssymb}
+
+\usepackage{amsfonts}
+
+
+
+% ---- Eigene Befehle ---- 
+
+\newcommand{\limn}{\lim_{n \rightarrow \infty}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+
+
+% ---- Beginn des Eigentlichen Dokuments ----
+
+
+
+\begin{document}
+\title{\Huge{\textbf{Formelsammlung Physik}}}
+\author{Jonathan Schnitzler, Sven Ullmann, Thomas Stegmeyer \\ und weitere Interessierte}
+\date{\today{}}
+
+
+
+\maketitle
+\let\cleardoublepage\clearpage
+
+\tableofcontents
+
+
+
+
+
+
+\newpage
+
+\chapter{Grundlagen}
+
+
+\renewcommand*{\arraystretch}{1.4}
+
+\begin{tabular}{l|l|l|l}
+
+\hline
+\textbf{Symbol} & \textbf{Name} & \textbf{Wert} & \textbf{Einheit} \\
+\hline
+$\pi$ & Pi & $3.14159265358979323846$ & ---\\
+$ e $ & Eulersche Zahl & 2.71828182845904523536 & --- \\
+$ g $ & Erdbeschleunigung & $9.81$ & $\frac{m}{s^2}$ \\
+$ G $ & Gravitationskonstante & $6.67 \cdot 10^{-11}$ &$ \frac{m^3}{kg \cdot s^2}$ \\
+$r_{Erde} $ & Erdradius& 6370000 & $m$ \\
+$m_{Erde}$ & Erdmasse & $5.97 \cdot 10^{24}$ & kg\\
+$m_{Sonne}$ & Sonnenmasse & $1.989 \cdot 10^{30} $ & kg  \\
+$R$ & Universelle Gaskonstante & $8.31446261815324$ & $\frac{kg m^2}{s^2 mol K}$ \\
+$k_b$ & Boltzmann Konstante & $1.380649 \cdot 10^{-23}$ & $\frac{J}{K}$ \\
+$N_A$ & Avogadro Konstante& $6.02214076 \cdot 10^{23} $ & $\frac{1}{mol}$ \\
+$\sigma$ & Stefan-Boltzmann Konstante & $5.670374419 \cdot 10^{-8}$ & $\frac{W}{m^2K^4}$\\
+$e$ & Elementarladung & $1.602 \cdot 10^{-19}$ & $As$ \\
+$m_e$ & Elektronenmasse & $9.1093837015 \cdot10{-31} $ & kg \\
+$m_p$ & Protonenmasse & $1.67262192369 \cdot 10{-27} $ & kg \\
+$\varepsilon_0 $ & Elektrische Feldkonstante & $ 8.8541878128\cdot 10^{-12} $ & $ \frac{A\cdot s}{V \cdot m} $ \\
+$ \mu_0 $ & magnetische Feldkonstante & $ 1.25663706212 \cdot 10^{-6} $ & $ \frac{N}{A^2} $\\
+$c$ & Lichtgeschwindigkeit & $299792458$ & $\frac{m}{s}$ \\
+
+\end{tabular}
+
+
+
+
+
+
+
+\newpage
+\chapter{Mechanik}
+
+
+\section{Grundlagen der Physik}
+
+Ziel der Physik ist das fundamentale Verständnis der Natur.\\
+
+\begin{itemize}
+\item Beschreibung der Wirklichkeit
+\item Beobachtungen verstehen
+\item Vorhersagen treffen
+\end{itemize}
+
+\textsc{Empirische Gesetze}: Herleitung von physikalischen Zusammenhängen unserer Beobachtung\\
+
+\textsc{Axiomatische Theorien}: Logischer Aufbau von physikalischen Zusammenhängen aus nicht beweisbaren Grundannahmen (Axiomen) \\
+
+\section{Kinematik}
+
+Bewegung und Beschleunigung\\ 
+
+\begin{align*}
+s &= \int_{t_1}^{t_2}{v(t)  \diff t} = \frac{1}{2} a \cdot t^2 +  v_0 \cdot t + s_0 \\
+v &= a \cdot t  = \sqrt{2 as} \\
+\end{align*}
+
+\begin{equation*}
+\vec{a}(t) = \dot{\vec{v}}= \ddot{\vec{x}} =  
+\begin{pmatrix} 
+\frac{\partial^2 x}{{\partial t}^2} \\ 
+\frac{\partial^2 y}{{\partial t}^2} \\  
+\frac{\partial^2 z}{{\partial t}^2} 
+\end{pmatrix} 
+\end{equation*}
+
+
+\section{Newtonsche Mechanik}
+
+\subsection{Newtonsche Gesetze}
+
+\textsc{Erstes Newtonsche Gesetz (Trägheitsgesetz):} \\
+
+Ein Körper verharrt im Zustand der Ruhe oder der gleichförmigen und geradlinigen Bewegung, solange keine resultierende Kraft auf ihn wirkt.\\
+
+\textsc{Zweites Newtonsche Gesetz:} \\
+
+$ F = m \cdot a $\\
+
+Somit gilt das Superpositionsprinzip: $ \vec{F} = \sum_i{\vec{F}_i} $ \\
+
+\textsc{Drittes Newtonsche Gesetz:} \\
+
+Wechselwirken zwei Körper nur miteinander aber nicht mit anderen Körpern, so gilt: \\
+		
+Die Kraft, die Körper 1 auf Körper 2 ausübt, ist gleich groß und entgegen gesetzt gerichtet der Kraft, die Körper 2 auf Körper 1 ausübt.\\
+
+
+$ actio = reactio $ \\
+
+\subsection{Gravitationskraft}
+
+\begin{equation}
+\vec{F} = G \cdot \frac{m_1 \cdot m_2}{|x_2 - x_1|^2}\hat{x} 
+\end{equation}
+
+\subsection{Kräftegleichgewicht}
+
+Ist ein Körper oder ein System aus wechselwirkenden Körpern in Ruhe (v = const.) , dann ist die Summe aller wirkenden Kräfte Null. \\
+
+$ \vec{F} = \sum_i{\vec{F}_i} $ - 3. Newtonsche Gesetz, es gibt im Gleichgewicht immer eine entgegenwirkende Kraft z.B. Reibungskraft.
+
+\subsection{Federkraft}
+
+$(Hook'sches Federgesetz: F =- k \cdot \Delta x $   \\
+
+Achtung: Das lineare Federgesetz gilt nur in bestimmten Bereichen, im sogenannten elastischen Bereich, d.h. nur für$\Delta$x Bereiche, in denen die Verformung der Feder reversibel ist. \\
+
+\subsection{Bezugssysteme}
+
+Die Lage und Bewegung eines Körpers kann nur relativ zu einem Bezugsystem angegeben werden.
+
+Alle physikalischen Phänomene muss unabhängig von der Wahl des Bezugsystems sein. \\
+
+
+\textsc{Inertialsystem:} \\
+In einem Inertialsystem bewegen sich Körper geradlinig, gleichförmig, wenn keine Kräfte auf sie wirken. \\
+
+\textsc{Erdobefläche:} \\
+ Ist kein Inertialsystem, aber kann durch Einschränkungen von Bewegungen näherungsweise als Inertialsystem aufgefasst werden.\\
+		Bsp: Bewegungen parallel zur Erdoberfläche bei Vernachlässigung der Erdbeschleunigung\\
+	
+\textsc{Laborsystem:}\\
+Das Bezugsystem, in dem sich der Beobachter in Ruhe befindet\\
+
+\textsc{Schwerpunktsystem:}\\
+Das Bezugsystem, in dem sich der Schwerpunkt in Ruhe befindet\\
+
+\textsc{Beschleunigte Bezugsysteme:}\\
+Alle Bezugssysteme, die sich relativ zu einem Inertialsystem bewegen\\
+Hier treten Scheinkräfte auf. Z.B. Zentrifugalkraft.\\
+
+\subsection{Zentripetalkraft}
+
+Die Zentripetalkraft ist die Kraft, die nötig ist, um einen Körper mit Geschwindigkeit $\vec{v}$ auf einer Kreisbahn zu bewegen.\\
+
+Winkelgeschwindigkeit $ v = 2 \pi \cdot  f r = \omega r $ \\
+
+\begin{align*}
+x(t) &= r \cos{(\omega t)} \\
+v_x(t) &= -r \omega \sin{(\omega t)}\\
+a_x(t) &= -r \omega^2 \cos{(\omega t)}\\
+\vec{F}_Z &= - mr\omega^2\hat{r} = \frac{mv^2}{r}\hat{r} \\
+\end{align*}
+
+\subsection{Beschleunigte Bezugssysteme}
+Beschleunigte Bezugssysteme sind keine Inertialsysteme. Es treten Scheinkräfte/ Trägheitskräfte  auf, die auf die Massenträgheitskräfte zurückzuführen sind.
+
+\subsubsection{Zentripetalkraft}
+
+Betrachte die auf eine Masse wirkenden Kräfte in einem rotierenden Bezugssystem. Beobachtung: \\
+
+\textsc{Im Inertialsystem:} Zentripetalkraft wirkt auf Masse und hält sie auf Kreisbahn
+
+\textsc{Im rotierenden Bezugssystem:} Zentripetalkraft tritt ebenfalls auf, aber die Masse bleibt in Ruhe \\
+
+$\rightarrow$ Es muss eine Kraft geben, die der Zentripetalkraft entgegenwirkt. Diese Kraft nenne ich \emph{Zentrifugalkraft} \\ 
+
+\begin{equation*}
+F_U = -F_Z = mr\omega^2\hat{r} = \frac{mv^2}{r}\hat{r} 
+\end{equation*}
+
+
+\subsubsection{Corioliskraft}
+
+Anmerkung: Irgendwann später schreibe ich hier die komplette Herleitung über allgemein rotierendes Bezugssystem hin - bis dahin:\\
+
+\begin{equation}
+\vec{F}_C = - 2m(\vec{\omega} \times \vec{v}')    |\vec{F}_C| = 2m \omega v 
+\end{equation}
+
+\section{Impuls}
+
+Der Impuls $\vec{p} = m \cdot \vec{v}$  ist eine Erhaltungsgröße. D.h. in abgeschlossenen Systemen, die nur miteinander aber nicht mit äußeren Objekten wechselwirken, ist der Gesamtimpuls erhalten (const.)
+
+\subsection{Schwerpunktsystem}
+
+\begin{equation}
+\vec{r}_s = \frac{1}{M} \int{\vec{r}\diff m}
+\end{equation}
+
+Für 2 Massepunkte (1D): $ x_s = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2} $ \\
+
+Falls keine äußeren Kräfte wirken: $ F = 0 $ mit $ F = \frac{\diff p}{\diff t}  \rightarrow a_s = 0 $ dann bewegt sich der Schwerpunkt mit konstanter Geschwindigkeit
+
+\subsection{Stöße}
+
+\subsubsection{Voll elastischer Stoß}
+\begin{equation*}
+v_{1N} = \frac{v_{1V}(m_1-m_2)+ 2 m_2 v_{2V}}{m_1+m_2} 
+\end{equation*} 
+
+\subsubsection{Voll unelastischer Stoß}
+\begin{equation*}
+v_{1N} = \frac{v_1 m_1 + v_2 m_2}{m_1 + m_2} 
+\end{equation*}
+
+\subsubsection{Teil elastischer Stoß}
+$p_{1N}' = -b p_{1V}'  $  mit $b$ als Stoßparameter \\
+
+\subsection{Energie beim Stoß}
+
+\begin{tabular}{l|l|l}
+Art des Stoßes & Energie erhalten? & Formel\\
+Voll elastischer Stoß & Ja & $\frac{1}{2} mv_{V}^2=\frac{1}{2} mv^2_N $ \\
+Voll unelastischer Stoß & Nein & --- \\
+\end{tabular}
+
+\subsection{Nicht zentrale Stöße}
+
+Bei voll unelastischen Stoß $\alpha = \frac{\pi}{2} $ bei teilelastischen Stoß $ 0 \le \alpha \le \frac{\pi}{2} $ \\
+
+
+
+\section{Energie und Energieerhaltung}
+
+Die Gesamtenergie eines abgeschlossenem Systems ist zeitlich konstant.
+		
+$ \rightarrow$ Energie kann nur umgewandelt werden
+
+\subsection{Arbeit}
+
+Arbeit wird verrichtet, wenn ein Körper in Gegenwart einer auf ihn wirkenden Kraft bewegt wird.\\
+
+$ W = \int{\vec{F}(\vec{r})d\vec{r}} $ \\
+
+\subsection{Kinetische Energie und Arbeit}
+
+\begin{equation*}
+W = \frac{1}{2}mv_2^2- \frac{1}{2}mv_1^2 = E_{kin1}-E_{kin2} = \Delta E_{kin}
+\end{equation*}
+
+
+Die Änderung der kinetischen Energie ist die verrichtete Arbeit
+
+\subsection{Potentielle Energie}
+\begin{equation*}
+E_{Pot} = - \int_{R_1}^{R_2}{\vec{F} \diff \vec{r} }
+\end{equation*}
+
+Energiesatz der Mechanik: $ E_{ges} = const. \forall_t $ wenn nur konservative Kräfte vorhanden sind\\
+
+Potentielle Energie ist immer nur relativ zu einem Referenzpunkt $R_0$  definiert \\
+
+Negatives Vorzeichen, da wenn $W < 0$ Arbeit am Körper verrichtet wird. Verrichtet der Körper Arbeit - z.B. eine Metallkugel wird nach oben geschossen - dann steigt ihre Potenzielle Energie
+
+\subsection{Umwandlung von Energie}
+
+
+\subsubsection{Reversible Energieumwandlung}
+\begin{equation*}
+\Delta E_{Kin} = \Delta E_{Pot}
+\end{equation*}	
+Wichtig: Die Energieumwandlung ist nicht von der Vorgeschichte des Systems und nicht von der Dauer der Umwandlung abhängig
+
+\subsubsection{Irreversible Kräfte}
+\begin{equation*}
+E_{Kin,V} + E_{Pot,V} > E_{Kin,N} + E_{Pot,N}
+\end{equation*}
+Verlorene Energie wird umgewandelt $ \Delta E_{Kin} = - E_{Th} $ \\
+
+\subsubsection{Konservative Kräfte}
+Eine Kraft $\vec{F} $ ist Konservativ falls gilt, 
+\begin{equation*}
+\oint{\vec{F}}\diff \vec{s} = 0
+\end{equation*}
+Somit ist das Integral über einen geschlossenen Weg immer null. Das bedeutet verrichtete Arbeit hängt nur vom Startpunkt ab und nicht vom Weg. \\
+
+Bemerkung: Zu jeder Konservativen Kraft lässt sich ein Potential definieren $ E_{Pot}(R) $ \\
+
+Beispiele:
+\begin{itemize}
+\item Gravitationskraft
+\item Federkraft
+\item Elektromagnetische Kraft
+\end{itemize}
+
+\section{Drehimpuls}
+
+\begin{equation*}
+\vec{L} = \vec{r} \times \vec{p}
+\end{equation*}
+
+
+
+Der Drehimpuls ist ein Maß für den Drehbewegungszustand eines Körpers. Seine Einheit ist $ [\vec{L}] = \frac{kg \cdot m^2}{s} = Js$ und er ist analog zum linearen Impuls $\vec{p} $ \\
+
+\subsection{L für beliebige Bewegungen}
+
+Für den Drehimpuls ist nur die Komponente von p relevant,
+ die für eine Rotation sorgt
+
+\subsection{Drehimpulserhaltung}
+
+Der Drehimpuls eines abgeschlossenem Systems ist erhaltend: \\
+\begin{equation}
+\vec{L}_{Ges} = \sum_i\vec{L}_i = const. \forall t
+\end{equation}
+
+Konsequenz: Rotationsachse bleibt fest und läuft durch den Schwerpunkt
+
+\subsection{Drehmoment}
+
+Die zeitliche Änderung des Drehimpuls ist das Drehmoment \\
+
+\begin{equation}
+\vec{D} = \frac{\diff \vec{L}}{\diff t} \times \vec{p} = \vec{r} \times \vec{F}
+\end{equation}     
+
+
+\section{Harmonische Oszillation}
+
+Sehr breites Anwendungsgebiet:
+
+\begin{itemize} 
+\item Federpendel
+\item Fadenpendel 
+\item Schwingungskreis
+\item Atomphysik
+\item Quantenphysik
+\item Festkörperphysik
+\end{itemize}
+
+\subsection{Federpendel}
+
+Aus Energiebetrachtung: 
+\begin{itemize}
+\item Oszillation in parabolischen Potenzial
+\item Ruhelage max. kinetische Energie
+\item Auslenkung symmetrisch aus Ruhelage
+\end{itemize}
+
+\begin{align*}
+m \vec{a} &= \vec{F}_{Ges} \\
+m \ddot{x} &= F_G + F_k = -k(z-z_k) - m \cdot g \\
+m \frac{\diff^2}{\diff t^2} z' &= - \frac{k}{m} z 
+\end{align*}
+Gesucht ist die Funktion, welche die Differentialgleichung löst:
+\begin{equation}
+\frac{\diff^2}{\diff t^2} f(t) = c \cdot f(t) 
+\end{equation}
+Mögliche Lösung:
+\begin{align*}
+z(t) &= A \cos(\omega t + \varphi)  \\
+\dot{z}(t) &= -A \omega \sin(\omega t + \varphi) \\
+\ddot{z}(t) &= -A \omega^2 \cos(\omega t + \varphi) \\
+\omega &= \sqrt{\frac{k}{m}}
+\end{align*}
+
+
+\subsubsection{Fadenpendel}
+Beobachtung: für kleine Auslenkung nur eine Frequenzkomponente $\rightarrow $ Harmonische Schwingung \\
+für größere Auslenkungen mehrere Frequenzkomponenten $\rightarrow $  Unharmonische Schwingung \\
+
+$ \quad \dot{L} = D; \quad \ddot{L} = \frac{\diff}{\diff t} I \omega; \quad I = m l^2; \quad  \omega = \frac{\diff \varphi}{\diff t} $ \\
+
+\begin{align*}
+D &= F\cdot l = - F_G \cdot \sin(\varphi) \cdot l \\
+\dot{L} &= m l^2 \frac{\diff^2}{\diff t^2} = - m g \sin(\varphi) l \\
+\end{align*}
+Allgemeine Differentialgleichung des Fadenpendels:
+ \begin{equation}
+ \frac{\diff^2 \varphi}{\diff t^2} = \frac{g}{l} \sin(\varphi)
+\end{equation}
+Hierfür gibt es faszinierender Weise keine analytische Lösung! \\
+Näherung für kleine Auslenkungen:
+\begin{equation}
+ \frac{\diff^2 \varphi}{\diff t^2} = \frac{g}{l}  \varphi
+\end{equation}
+\subsection{Gedämpfte Schwingung}
+
+Bei Schwingung in verschiedenen Medien fällt uns auf: \\
+\begin{itemize}
+\item Abklingzeit der Schwingung mit der Zeit
+\item Abklingen schneller je größer die Stokes Reibung im Fluid
+\item Schwingungsperiode wächst mit der Dämpfung
+\end{itemize}
+Dämpfung ist universell und kommt in allen schwingenden Systemen in ähnlicher Form vor: \\
+
+
+\textsc{Mechanische Systeme:} Luftreibung, Lagereibung, Flüssigkeitsreibung \\
+
+\textsc{Elektrische Systeme:} Ohmsche Verluste, Strahlungsdämpfung
+
+Bewegungsgleichung erweitert sich um einen Reibungsterm: \\
+
+\begin{equation}
+m \ddot{x} = F = - kx - 6 \pi \eta R \cdot \dot{x} 
+\end{equation}
+
+Differentialgleichung einer allgemeinen gedämpften Schwingung mit nicht trivialer Lösung:
+
+ \begin{equation*}
+\omega_0^2 = \frac{k}{m}, \:  \gamma = \frac{\gamma '}{m}
+\end{equation*}
+\begin{align*}
+0 &= \ddot{x} + \gamma \dot{x} + \omega_0^2x \\
+x(t) &= A e^{\alpha t}  \\
+\dot{x}(t) &= \alpha e^{\alpha t} \\
+\ddot{x}(t) &= \alpha^2 e^{\alpha t} \\
+0 &= \alpha^2 + \alpha \gamma +  \omega_0^2 \\
+\alpha_{1,2} &= - \frac{\gamma}{2} \pm \frac{\sqrt{\gamma^2 - 4  \omega_0^2}}{2} 
+\end{align*}
+
+\textsc{Ergebnis: }
+\begin{equation}
+e^{i \omega_0t}= \cos(\omega t) + i \sin(\omega t) 
+\end{equation}
+
+3 Fälle für Dämpfungsterm:
+
+\begin{itemize}
+\item schwache Dämpfung: $\gamma^2 - 4 \omega_0^2 < 0$;  \quad   $\frac{\gamma}{2} <  \omega_0$;  \quad   $\alpha_{1.2} $  sind komplex\\
+\item kritische Dämpfung: $ \frac{\gamma}{2} = \omega_0 $; \quad $\alpha_{1,2} = -\frac{\gamma}{2} $ \\
+\item überkritische Dämpfung: $\frac{\gamma}{2} > \omega_0 $; \quad $ \alpha_{1,2} $ sind reell 
+\end{itemize}
+
+\subsection{Erzwungene Schwingung}
+
+Resonanzkatastrophe: Amplitude wird sehr groß und kann zu Materialzerstörung führen \\
+
+Jedes schwingungsfähige Gebilde mit einer freien Schwingungsfrequenz $\omega_0 $ kann durch periodische Anregung mit einer Frequenz $ \omega $ zu Schwingungen auf dieser Anregungsfrequenz "gezwungen" werden.
+
+Phasensprung
+
+Die Phase der Schwingung hängt von der Frequenz der Anregung ab.
+
+Phase: Phase zwischen Anregung und Schwingung
+
+%Hier können noch einige weitere Details eingefügt werden
+
+\subsection{Gekoppelte Schwingung}
+
+Werden mehrere (bis viele) schwingungsfähige Gebilde miteinander gekoppelt, so treten neuartige Phänomene auf. \\
+
+\begin{align*}
+m_1 \ddot{x_1} &=-k_1 x+k_{12} (x_2-x_1 ) \\	
+m_2 \ddot{x_2} &=-k_2 x+k_{12} (x_1-x_2 ) \\
+x_i &= A_i \cos(\omega t + \varphi_i) \\
+\omega^2 x_2 &= x_2 \Biggl( \frac{k}{m} +\frac{k_{12}}{m} \Biggr) - x_1 \Biggl( \frac{k_{12}}{m} \Biggr) \\ 
+\end{align*}
+
+Lässt sich überführen auf ein Eigenwertproblem:\\
+
+\begin{align*}
+\vec{x} &= 
+\begin{pmatrix} 
+x_1 \\ 
+x_2 
+\end{pmatrix} \\
+\omega^2 \vec{x} &= A \vec{x} \\
+A &=
+\begin{pmatrix}
+ \frac{k}{m} +\frac{k_{12}}{m} & -\frac{k_{12}}{m} \\
+-\frac{k_{12}}{m} & \frac{k}{m} +\frac{k_{12}}{m} \\
+\end{pmatrix}
+\end{align*}
+
+Besitzt eine Lösung, wenn $ \det(A - \omega^2 I) = 0 $
+
+\begin{align*}
+0 &= \det
+\begin{pmatrix}
+ \frac{k}{m} +\frac{k_{12}}{m}- \omega^2 & -\frac{k_{12}}{m} \\
+-\frac{k_{12}}{m} & \frac{k}{m} +\frac{k_{12}}{m} - \omega^2\\
+\end{pmatrix}
+\\
+0 &= \Bigl( \frac{k}{m}+ \frac{k_{12}}{m} - \omega^2 \Bigr) - \Bigl( \frac{k_{12}}{m} \Bigr) \\
+\omega^2  &= \frac{k}{m}+ \frac{k_{12}}{m} \pm \frac{k_{12}}{m} \\
+\end{align*}
+Es gibt zwei Schwingungsfrequenzen $ \rightarrow $ wenn Kopplung vergrößert wird erhöht sich die Frequenzaufspaltung \\
+
+LSG der DGL Linearkombination der Eigenschwingung: $ x(t) = x_\mathcal{A}(t) + x_\mathcal{B}(t) $ \\
+
+Gekoppelte Mode bilden sich aus, wenn die Eigenfrequenz der ungekoppelten Pendel ähnlich sind \\
+
+Selbst bei sehr schwacher Kopplung zeigt sich, dass die niedrigste gekoppelte Mode am stabilsten ist und sich nach sehr langer Zeit einstellt
+$ \Rightarrow $  \emph{Phasensynchronisation}\\
+
+Mode bzw. Normalschwingung $\omega^2 \vec{a} = A \vec{a} $ \\
+
+$ A = n \times n$ mit $ n \equiv $ Anzahl der Schwingungen \\ 
+
+\subsection{Lineare Kette}
+
+Gekoppelte Oszillatoren aber mit $ k_i = 0$ (nur noch mit Kopplungsfeder)
+\begin{equation}
+A = \frac{k_{ij}}{m} 
+\begin{pmatrix}
+1 & 1 & 0 & \dots & 0 \\
+1 & 2 & 1 & \dots & 0 \\
+0 & 1 & 2 & \dots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \dots & 1 \\
+\end{pmatrix}
+\end{equation}
+
+\subsection{Wellen}
+
+Wellen sind der Übergang einer Linearen Kette mit $ \limn $ und somit der Extremfall eines Gekoppelten Oszillatoren \\
+
+Man unterscheidet: \\
+
+\begin{tabular}{p{3cm}|p{5cm}|p{5cm}}
+& \textsc{Transversalwellen} & \textsc{Longitudinalwellen} \\
+\hline
+Beschreibung & Auslenkung ist senkrecht zur Ausbreitungsrichtung & Auslenkung ist parallel zur Ausbreitungsrichtung \\
+Eigenschaften &
+\tabitem Es gibt Ausbreitungsgeschwindigkeit von Auslenkung \newline
+\tabitem Es gibt Reflexion an Enden \newline
+\tabitem Es gibt Polarisation \newline
+& \tabitem Es gibt Ausbreitungsgeschwindigkeit \newline
+\tabitem Es gibt Reflexion \newline
+\tabitem Es gibt keine Polarisation \\ 
+
+Beispiele & Seilwellen, Licht, Gravitationswelle, Biegewellen & Schall \\
+
+\end{tabular}
+
+\emph{Hier ist mir die Formation noch nicht perfekt gelungen} \\
+
+\subsubsection{Wellengleichung}
+
+Annahme: Wellenfunktion $\phi(x,t)$ ist eine Variation einer pysikalischen Größe, die sich mit konstanter Geschwindigkeit $v (v_{gr})$ ausbreitet\\
+
+Zeit und Ort sind unabhängig voneinander: $\phi(x,t_1) = \phi(x-v(t_2-t_1),t_0) $ \\
+
+$v$ ist die \emph{Ausbreitungsgeschwindigkeit} und $\vec{\phi} $ die \emph{Wellenfunktion} \\
+
+Die Wellengleichung ist: \\
+
+\begin{equation}
+\Delta \vec{\phi} = \frac{1}{v^2} \frac{\diff^2 \phi}{\diff t^2}
+\end{equation}
+
+Für Transversalwellen gilt: \\
+
+\begin{equation}
+\begin{pmatrix}
+\frac{\partial^2 \vec{\phi}_x}{\partial x^2} + \frac{\partial^2 \vec{\phi}_x}{\partial y^2} + \frac{\partial^2 \vec{\phi}_x}{\partial z^2} \\
+\frac{\partial^2 \vec{\phi}_y}{\partial x^2} + \frac{\partial^2 \vec{\phi}_y}{\partial y^2} + \frac{\partial^2 \vec{\phi}_y}{\partial z^2} \\
+\frac{\partial^2 \vec{\phi}_z}{\partial x^2} + \frac{\partial^2 \vec{\phi}_z}{\partial y^2} + \frac{\partial^2 \vec{\phi}_z}{\partial z^2} \\
+\end{pmatrix} = \frac{1}{v^2}
+\begin{pmatrix}
+\frac{\partial^2 \vec{\phi}_x}{\partial t^2}\\
+\frac{\partial^2 \vec{\phi}_y}{\partial x^2}\\
+\frac{\partial^2 \vec{\phi}_z}{\partial x^2}\\
+\end{pmatrix} 
+\end{equation}
+
+Für Longitudinalwellen: \\
+
+\begin{equation}
+\frac{\partial^2 \vec{\phi}_x}{\partial t^2} +
+\frac{\partial^2 \vec{\phi}_y}{\partial x^2} +
+\frac{\partial^2 \vec{\phi}_z}{\partial x^2} =
+\frac{1}{v^2} \frac{\diff^2 \phi}{\diff t^2}
+\end{equation}
+
+\subsubsection{Lösung der Wellengleichung}
+
+\begin{equation}
+\phi(x,t) = \phi_0 \cdot e^{i(\omega t - k x)} \\
+\end{equation}
+
+In dieser Notation ist die Wellenfunktion komplexwertig. Alle physikalisch beobachtbaren Größen sind reelle Werte $\Re(\phi)$. \\
+
+Für allgemeine Lösung der Wellengleichung: \\
+
+
+
+\textsc{1) Die Wellengleichung ist eine lineare und homogene DGL} \\
+		
+\quad Es gilt das Superpositionsprinzip, wenn $\phi_1$  und $\phi_2$  Lösungen sind, dann auch \\
+\quad$\phi=\phi_1+\phi_2$
+			
+\textsc{2) Fouriertheorem}\\
+
+Jede beliebige Funktion lässt sich als Summe ebener harmonischer Wellen ausdrücken
+
+
+\begin{equation*}
+\phi(x,t) = \sum_j\phi_k e^{i\omega(j)t-kx} \\
+\end{equation*}
+
+\subsubsection{Stehende Wellen}
+
+Stehende Wellen entstehen, wenn sich Wellenfunktionen mit entgegengesetzter Ausbreitungsrichtung aber gleicher Wellenzahl $ k $ überlagern
+
+\begin{align*}
+\phi_1 &= \phi_0 \cdot e^{i(\omega t-kx)} \\
+\phi_2 &= \phi_0 \cdot e^{i(\omega t + k(x+x_0))} \\
+\phi &= \phi_1 + \phi_2 \\
+\phi &= \phi_0 \cdot e^{i\omega t}(e^{-ikx}+e^{ikx}\cdot e^{-ikx_0}) \\
+Re(\phi) &= 2 \phi_0 \cdot \cos(\omega t+\varphi) \cdot \cos(kx + \varphi); \quad \varphi = \pi \frac{x_0}{\lambda}; \quad k = \frac{2\pi}{\lambda} \\
+\end{align*}
+
+Die Welle breitet sich nicht mehr aus: \\
+
+Reflexion: \\
+
+\quad am offenem Ende ist in der Reflexion kein Phasensprung \\
+
+\quad am festen Ende: in der Reflexion Phasensprung $\pi$ \\
+
+\subsubsection{Resonatoren}
+
+Grundton sind keine Knoten, Obertöne sind $ k \cdot f $ \quad  $ k  \in \mathbb{N} $ \\
+
+\subsubsection{Höher Dimensionale Wellen}
+
+In höheren Dimensionen können Wellen mit einem Vektor $\vec{k}$ dargestellt werden \\ 
+
+\begin{equation*}
+\phi(\vec{r}, t) = \phi_0 \cdot e^{i(\omega t - \vec{k} x)} 
+\end{equation*}
+
+Es gibt ebene Wellen, Kreiswellen, Kugelwellen und noch weitere andere Formen. Wichtigste Erkenntnis aus Betrachtung von Kreiswellen durch Energieerhaltung im steady-state: \\
+
+\begin{itemize}
+\item Amplitude nimmt mit $\frac{1}{\sqrt{r}}$ ab (in 3D $\frac{1}{r}$)
+\item Energiedichte nimmt mit $\frac{1}{r}$ ab (in 3D $\frac{1}{r^2}$)
+\end{itemize}
+
+%Hier können noch mehr Details eingefügt werden
+
+\subsubsection{Dopplereffekt}
+
+Entsteht wenn sich die Quelle und Empfänger relativ zueinander bewegen. (Siehe auch Huygensche Prinzip)
+
+Veränderte Wellenlänge $ \lambda' = vT-v_QT $ \\
+
+Kreisfrequenz: $\omega' = \omega \cdot \frac{1}{1- \frac{v_Q}{v}} $ \\
+
+
+
+
+\subsubsection{Interferenz}
+
+Um Interferenz beobachten zu können, müssen $\phi_1$ und $\phi_2 $ eine feste Phasenbeziehung zueinander haben (Kohärenz)
+(i.d.R müssen $phi_1$ \& $\phi_2 $ die gleiche Frequenz haben) \\
+
+Wichtig: Es gibt Bereich, in denen sich die Wellen gegenseitig auslöschen (Destruktive Interferenz) und Bereiche, in denen sich die Wellen konstruktiv überlagern (konstruktive Interferenz) \\
+
+Foofeldnäherung: $ R >> d $ dann gilt näherungsweise $ R_1 = R_2 + l$ \\
+
+Destruktive Interferenz tritt auf, wenn $ l = \frac{\pi}{2}, \pi , \frac{3\pi}{2},\frac{5\pi}{2} $ \\
+
+\begin{equation*}
+\sin(\alpha) = \frac{l}{d} = \frac{n\lambda}{2d} 
+\end{equation*}
+
+
+
+\section{Himmelsmechanik}
+
+\subsection{Kreisförmige Satelitenbahnen}
+
+\begin{align*}
+|\vec{F}_Z| &= |\vec{F}_G \\
+m\cdot \omega^2 &= G \frac{mM}{r^2} \\
+\omega^2 &= G \cdot \frac{M}{r^3} \\
+\end{align*}
+
+Wichtige Eigenschaften:
+
+\begin{itemize}
+\item Satellitenbahnen (Radius r) ist unabhängig von m
+\item mit $ \omega = \frac{2 \pi}{T}: $ \quad $ \frac{r^3}{T^2} = \frac{GM}{4 \pi^2} (2. Kepler) $ \\
+
+\end{itemize}
+
+\textsc{LEO (Low Earth Orbit)} \\ 
+
+Höhen über Erdoberfläche bis ca. 2000 km \\
+
+\textsc{Geosynchrone Umlaufbahn}
+
+Der Abstand in welchem bei fester Umlaufbahn Rotation der Erdrotation entspricht, was bei 
+$r =  \sqrt[3]{\frac{GMT^2}{\pi^2}} = 4.2 \cdot 10^7 m $ \\
+
+
+\subsection{Kosmische Geschwindigkeiiten}
+
+\textsc{1. Kosmische Geschwindigkeit:} Statik Umlaufbahn mit $h=0$ \quad $v_1 = 7994 \frac{m}{s} = 28598.4 \frac{km}{h} $\\
+
+\textsc{2. Kosmische Geschwindigkeit}  Fluchtgeschwindigkeit, das Gravitationspotential der Erde zu verlassen. $-G \frac{mM}{r_E} + \frac{1}{2} m v_f^2 = 0 $ umgestellt ergibt somit $ v_f = \sqrt{\frac{2GM}{r_E} } = 1.12 \cdot 10^4 \frac{m}{s} $ \\
+
+\textsc{3. Kosmische Geschwindigkeit:} Fluchtgeschwindigkeit, um das Gravitationspotenzial der Sonne zu verlassen $ v_3 = 4.2 \cdot 10^4 \frac{m}{s} $. Beachte: Bahngeschwindigkeit der Erde kann helfen. \\
+
+
+\subsection{Himmelsmechanik des Sonnensystems}
+
+Ansatz: Planetenbewegungen werden ausschließlich durch die Gravitationskraft bestimmt (vernachlässigen hier relativistische Effekte). Bewegungsgleichung für das Sonnensystem:
+
+\begin{equation}
+m_i \ddot{\vec{r_i}} = - \sum_{i \neq j} \vec{F}_{G,i,j} =  - \sum_{i \neq j} G \frac{m_i m_j}{|\vec{r}_{i,j}|^3} \cdot \vec{r_{i,j}} 
+\end{equation}
+
+Bemerkung:
+
+Dies ist ein gekoppeltes Differenzialgleichungssystem, denn $ \ddot{\vec{r_{i,j}}}$ hängt von allen $ \vec{r_{i,j}}$  ab. Für 2 Planeten gibt es eine analytische Lösung. Für 3 oder mehr Planeten muss diese Lösung numerisch erfolgen.
+
+Numerische Lösung: überführe exakte Ableitungen  $ \ddot{\vec{r}}_{i,j}$ in finite Differenzen  $ \frac{\Delta r_{i,j}}{\Delta t} $ zum Beispiel in Matlab.
+
+
+\subsection{Die Keplergesetze}
+
+Die Keplergesetze sind nur exakt für 2 Himmelskörper. In Systemen mit 3 oder mehr Himmelskörpern stellen sie Näherungen dar. \\
+
+\textsc{1. Keplergesetz:}  Planetenbahnen sind Ellipsen mit der Sonne in einem Brennpunkt
+
+\textsc{2. Keplergesetz:} Der Fahrstrahl eines Planeten überstreicht in gleichen Zeiten, gleiche Flächen $ \frac{\diff A}{\diff t} $
+
+\textsc{3. Keplergesetz:} $ \frac{T^2}{a^3} = \alpha = \frac{4\pi^2}{GM} $  Mit $ \alpha =const. $  Für alle Planeten im Sonnensystem
+
+
+\subsubsection{Herleitung der Keplergesetze:}
+
+Ansatz über $\vec{F} = m \cdot \vec{a} $ sowie Drehimpuls und Energieerhaltung. So entsprechen die Planetenbahnen Kegelschnitten.\\
+
+\section{Ausgedehnte Körper}
+
+\subsection{Rotationsbewegung}
+
+Zylinder mit unterschiedlicher Massenverteilung erlangen unterschiedliche Endgeschwindigkeiten \\
+
+\quad $\rightarrow$ Energiesatz der Mechanik muss erweitert werden.
+
+\quad $\rightarrow$ Rotationsenergie
+
+
+Allgemein: Ausgedehnte Körper haben mehr Freiheitsgrade als Massepunkte. \\
+
+	3 Translationen + 3 Rotationsfreiheitsgrade \\
+	
+Es gibt kinetische Energie für jeden Freiheitgrad! \\
+
+\subsubsection{Energiesatz der Mechanik für ausgedehnte (rotierende) Körper}
+\begin{equation}
+E_{ges} = E_{kin} + E_{pot} + E_{rot} = const.
+\end{equation}
+Man beachte die Symmetrie von $E_{kin} = \frac{|\vec{p}|^2}{2m} $ und $ E_{rot} = \frac{|\vec{L}|^2}{2 I} $ \\
+
+\subsubsection{Messung von Trägheitsmomenten}
+
+\emph{Im Torsionspendel:} Vergleiche Trägheitsmomente mit $ \frac{I_1}{I_2} = \frac{T_1^2}{T_2^2} $ \\
+
+Die Bewegungsgleichung der Torsionsschwinge ist $\frac{ \diff ^2 \varphi}{\diff t ^2} = -\frac{k}{I} \varphi $ und die Lösung des DGL ist $ \varphi(t) = \varphi_0 \cdot \cos(\omega t ) $ mit $ \omega = \sqrt{\frac{k}{I} }$ \\
+
+Nützlich könnte auch $ \bigl(\frac{T}{2\pi}\bigr)^2 \cdot k = I $ sein. 
+
+
+\subsubsection{Trägheitstensor}
+
+
+Ansatz: Rotation um beliebige Achsen durch den Schwerpunkt \\
+\begin{align*}
+\diff \vec{L} &= \vec{r} \times \diff m \cdot \vec{v} \\
+&= \int \vec{r}^2 \omega - (\vec{r} \vec{\omega} \vec{r} \diff m \\
+\end{align*}
+
+Betrachte $\vec{L}$ Komponentenweise:
+
+\begin{equation*}
+L_x = \omega_x \int (r^2-r_x^2) \diff m + \omega_y (-\int r_x r_y \diff m) + \omega_z(- \int r_x r_z \diff m)
+\end{equation*}
+
+Somit gilt:
+
+\begin{equation}
+\vec{L} = I \cdot \vec{\omega},   I = 
+\begin{pmatrix}
+I_{xx} & I_{xy} & I_{xz} \\
+I_{yx} & I_{yy} & I_{yz} \\
+I_{zx} & I_{zy} & I_{zz} \\
+\end{pmatrix}
+\end{equation}
+
+
+Bemerkung: Tensoren haben bestimmte Eigenschaften insbesondere sind Koordinatentransformationen erlaubt. Es handelt sich hierbei außerdem stets um einen symmetrischen Tensor\\
+
+
+Trägheitstensoren erlauben eine elegante Beschreibung von Rotation. \\
+
+Wichtig in der Regel ist $ \vec{L} $ nicht parallel zu $\omega$. Somit wirken weitere Kräfte auf die Drehachse. Bestimmung des Trägheitstensor in diesem Fall Steiner'scher Satz $ I_N = I_S + d^2 $ 
+
+
+\subsubsection{Hauptachsentransformation}
+
+Da I ein Tensor ist, kann man eine Koordinatentransformation durchführen so dass I diagonal wird.
+
+\begin{equation}
+\begin{pmatrix}
+I_a & 0 & 0 \\
+0 & I_b & 0 \\
+0 & 0 & I_c \\
+\end{pmatrix}
+\end{equation}
+
+Trägheitsmomente lassen sich entlang einer Hauptachse leichter berechnen mit $\rho \int \vec{r}^2 - \vec{r}_x ^2 \diff V $ \\
+
+\subsubsection{Stabilität der extremalen Trägheitsachsen}
+
+Nur die Rotation um die Hauptachsen mit dem größten und dem kleinsten Trägheitsmoment ist langzeitstabil.\\
+
+Die Rotation um die Hauptachse mit mittleren Trägheitsmoment (und beliebige Rotationen)  führen zu einer Taumelbewegung. \\
+
+Was passiert? Betrachte Energie und Drehimpulserhaltung\\
+
+\begin{align*}
+ E_{rot} &= const. \\
+&= \frac{L a^2}{2 I_a} + \frac{L b^2}{2 I_b}  \frac{L c^2}{2 I_c} \\
+\\
+\vec{L} &= const. \\
+\Rightarrow \vec{L}^2 &= const. \\
+&= L_a^2 ++ L_b^2 + L_c^2 \\
+\end{align*}
+
+\subsection{Kreisel}
+
+In der Regel rotationssymmetrische Körper mit einer ausgewiesenen Achse
+
+\begin{equation*}
+\begin{pmatrix}
+I_\perp & 0 & 0 \\
+0 & I_\perp & 0 \\
+0 & 0 & I_f \\
+\end{pmatrix}
+\end{equation*}
+
+\subsubsection{Präzession}
+
+Die Präzessionsgeschwindigkeit ist $ \omega_p = \frac{\diff \varphi}{\diff t} = \frac{|\vec{D}|}{|\vec{L}|} $ für $| \vec{L} | = I_f \cdot \omega \rightarrow \omega_p = \frac{D}{I \omega}$ \\
+
+
+\textsc{Bemerkung: }\\
+
+1) $\omega_p= const$ wenn $D=const.$  Bei konstantem Drehmoment ändert sich Drehimpuls mit konstanter Geschwindigkeit \\
+
+	2) $\omega_p$ wird klein, wenn $\omega$  groß wird\\
+
+	3) Diese Betrachtung gilt nur, solange $\omega_p \ll \omega $ ist.\\
+
+
+\subsubsection{Nutation}
+
+Bei Schlag auf Achse beginnt Kreisel (insbesondere Figurenachse) zu nutieren ("Eiern") \\
+
+Neuer Drehimpuls: $ \vec{L} = \vec{L}_0 + \vec{r} \times \vec{p} = \vec{L}_0 + \vec{L}_\perp $ \\
+
+Das heißt nach dem Schlag rotiert der Kreisel mit  $\omega_{1}^{'}$   um eine Achse  und gleichzeitig mit $omega_{2}^{'} $ um die zweite Achse.\\
+
+Achtung: Diese Beschreibung gilt im Koordinatensystem des Hauptachsen und rotiert mit dem Kreisel
+
+
+Ausführliche Beschreibung Demtröder S. 145 ff.
+
+Merke: $\vec{L} \nparallel \vec{\omega} $  bei Nutation. $\vec{L}$ ist raumfest. Figurenachse rotiert um $\omega$
+und $ \omega $ rotiert um $\vec{L}$.
+
+
+\subsection{Deformierbare Körper}
+
+Jetzt betrachten wir nicht mehr nur starre Körper, sondern genauere Betrachtung \\
+
+Je stärker die Kraft ist desto eine größere Verformung findet statt. Im \emph{elastischen} Bereich, ist diese Veränderung reversibel und die Bindungen werden lediglich gestreckt beziehungsweise kontrahiert.\\
+ Im \emph{plastische} Bereich, ist die Veränderung irreversibel, da Versetzung durch die Kristalle wandern.
+
+
+
+
+
+
+
+\section{Fluidmechanik}
+
+Fluide können sowohl Flüssigkeiten, als auch Gase sein. Es sind Substanzen, die sich unter Einfluß von Scherkräften kontinuierlich  verformen. Es gibt dabei keine statische Rückstellungskraft 
+
+Wir definieren uns $\rho$ als die Dichte, $\eta$ als die Viskosität und $\sigma$ als Oberflächenspannung. Diese Größen benötigen wir um das Innere sowie den Rand eines Fluids zu beschreiben.
+
+
+\subsection{Oberflächen und Kraftrichtungen}
+Die Flüssigkeitsoberfläche steht stets senkrecht zur wirkenden Kraft. \\
+Das Profil der Oberfläche einer rotierenden Flüssigkeit ist immer eine Parabel, unabhängig davon welche Flüssigkeit wir rotieren.
+
+\subsection{Oberflächenspannung}
+
+Wir definieren und die Oberflächenenergie zu 
+\begin{align}
+\sigma = \frac{dW}{dA}
+\end{align}
+mit $[\sigma] = \frac{N}{m} $. Die Einheit ist $\frac{N}{m} $ ist. Ab sofort ist $\sigma$ die Oberflächenspannung. \\
+\\
+Es gilt $\sigma > 0$ für alle Flüssigkeiten. D.h. jede Oberfläche kann ihre Gesamtenergie minimieren, indem sie ihre Oberfläche minimiert. 
+\\
+Kugelförmige Oberflächen erzeugen einen Druck im Inneren, der durch die Oberflächenspannung erzeugt wird.\\
+Wir definieren uns den Druck allgemein zu 
+\begin{align}
+P = \frac{F}{A} 
+\end{align}
+mit der Einheit $[P] = \frac{N}{m^2}$.\\
+\\
+Man findet den Zusammenhang 
+\begin{align}
+P \sim \frac{1}{r}
+\end{align}
+Der Druck in kleinen Flüssigkeitskugeln ist größer als in großen Flüssigkeitskugeln.\\
+\\
+Für dem Druck in Blasen gilt
+\begin{align}
+P = 4\frac{\sigma}{r}
+\end{align}
+
+\subsection{Grenzflächenspannung}
+Wir definieren uns $\sigma_{ik}$ als die Grenzflächenspannung zwischen Phase i und Phase k zu 
+\begin{align}
+\sigma_{ik} = \frac{dW}{dA_{ik}}
+\end{align}
+
+
+\textbf{Kontaktwinkel an Festkörpern}
+
+Es gilt der folgende Zusammenhang 
+
+\begin{align}
+\cos(\alpha) = \frac{\sigma_{13}-\sigma_{12}}{\sigma_{23}}
+\end{align}
+
+Mithilfe dieser Formel lässt sich einfach Bestimmen, ob das Fluid eine konvexe oder konkave Oberfläche mit seiner Grenzschicht ausbilden wird. \\
+
+\textbf{Zur Kapillarität}
+
+Im Gleichgewicht gilt Kapillardruck = Schweredruck \\
+Damit ergibt sich für die Höhe der Flüssigkeit in der Kapillare 
+\begin{align}
+h = \frac{4\sigma_{23}\cos(\alpha)}{\rho gd}
+\end{align}
+Es gilt also $h \sim \frac{1}{d}$
+
+\subsection{Druck in Fluiden}
+In einer inkompressiblen Flüssigkeit ohne äußere Wechselwirkung ist der Druck im gesamten Flüssigkeitsvolumen konstant. \\
+
+\textbf{1. Zum Schweredruck} \\
+
+\textbf{Inkompressible Fluid} \\
+Hier ist $\rho = const $  \\
+Für den Druck in Tiefe $t$ gilt 
+\begin{align}
+P(t) = P_0 + \rho gt
+\end{align}
+Der Druck nimmt also linear mit der Tiefe zu. \\
+
+\textbf{Kompressibles Fluid (z.B. Luft)} \\
+Hier gilt zuerst einmal 
+\begin{align}
+\rho(P) = C \cdot P
+\end{align}
+Wobei $C$ für die Kompressibilität steht, mit $[C] = \frac{s^2}{m^2}$.\\
+\\ Für Druck und Dichte in Abhängigkeit der Höhe $h$ gelten bei konstanter Temperatur die Barometrischen Höhenformeln 
+\begin{align}
+P(h) = P_0\exp(-gCh) \\
+\rho(P) = P_0\exp(-gCh)
+\end{align}
+\\
+\textbf{2. Zum Auftrieb} \\
+Jeder Körper erfährt in einem Fluid eine der Gravitationskraft entgegenwirkende Kraft, den Auftrieb. \\
+Die Ursache dafür ist der Druckunterschied zwischen Ober- und Unterseite der Körpers. \\
+\begin{align}
+F_G = -\rho_kgdV \\
+F_A = \rho_FgdV
+\end{align}
+Dabei sind $\rho_k$ bzw. $\rho_F$ die Dichte des Körpers bzw. des Fluids. \\ \\
+Das Archimedische Prinzip besagt, das ein schwimmender Körper soweit in die Flüssigkeit eintaucht, das die verdrängte Flüssigkeit gerade seinem Gewicht entspricht. In Formeln also 
+\begin{align}
+F_G - F_A = 0 
+ \Leftrightarrow  (m_k - V_k\rho_F) = 0
+\end{align}
+
+\subsection{Druck in strömenden Fluiden}
+In diesem Abschnitt vernachlässigen wir die Viskosität inkompressibler Fluide. \\
+\\
+Es gilt: Der Volumenfluss 
+\begin{align}
+Q = \vec{v} A 
+\end{align}
+ist überall konstant. Daraus folgt sofort die Kontinuitätsgleichung 
+\begin{align}
+\vec{v_1}A_1 = \vec{v_2}A_2
+\end{align}
+Eine der zentralsten Überlegungen der Fluidmechanik ist die Bernoulli-Gleichung. Diese besagt
+\begin{align}
+p + \rho hg + \frac{\rho v^2}{2} = const 
+\end{align}
+
+Dabei ist $p$ der statische Druck und $\rho hg$ der Schweredruck, der aufgrund der Erdanziehung zu berücksichtigen ist. \\
+Der Anteil $\frac{\rho v^2}{2} $ entfällt, wenn sich das Fluid in Ruhe befindet.
+
+\subsection{Innere Reibung / Viskosität}
+Die Stokesche Reibung ist definiert über die Kraft zur Bewegung einer Kugel mit Radius $R$ durch ein Fluid als 
+\begin{align}
+F_R = -6\pi \eta Rv
+\end{align}
+
+\subsection{Laminare vs. turbulente Strömungen}
+Zu Beginn definieren wir uns die Reynoldszahl zu 
+\begin{align}
+Re = \frac{R\rho v}{\eta}
+\end{align}
+Dabei ist $R$ eine charakteristische Länge des Körpers (z.B. der Radius. Die Reynoldszahl ist einheitenlos. \\
+System mit ähnlichen Reynoldszahlen werden sich ähnlich verhalten. \\
+\\ 
+In laminaren Strömungen dominiert der Strömungswiderstand durch Viskosität. Es gilt $Re < 1$ und $F \sim v$. \\
+\\
+In turbulenten Strömungen dominiert der Strömungswiderstand durch Turbulenz. \\
+\\
+Bei einer laminaren Strömung durch ein Rohr greift das Gesetz von Hagen-Poiseuille. Mit diesem Gesetz lässt sich der Volumenstrom berechnen zu 
+\begin{align}
+Q = \frac{\pi R^4 \Delta p}{8\eta L}
+\end{align}
+Dabei ist $\Delta p$ die Druckdifferenz, die das Fluid überhaupt zum Fließen bringt, $L$ die Länge und $R$ der Radius des Rohrs 
+
+
+
+\section{Metrologie}
+
+Die Wissenschaft des Messens, die sich mit dem Bestimme und Dokumentieren von Messwerten und deren Genauigkeit beschäftigt.
+
+\subsection{SI-Einheiten}
+
+Anerkanntes Einheitensystem für die Angabe physikalischer Größen.\\
+
+Es gibt 7 Basiseinheiten:
+
+\begin{itemize}
+\item Sekunde [s]
+\item Meter [m]
+\item Kilogramm [kg]
+\item Ampere [A]
+\item Kelvin [K]
+\item Mol [mol]
+\item Candela [cd]
+\end{itemize}
+
+Alle Größen die in der Physik verwendet werden, können auf die Grundgrößen zurückgeführt werden. Sie sind von Naturkonstanten abgeleitet (seit 2019)\\
+ z.B.  Lichtgeschwindigkeit und Frequenz eines   eines 133 Cäsium - Atoms $\rightarrow$  Definition des Meters
+
+%Hier könnte man in einer Tabelle alle Definitionen einführen
+
+\subsection{Messfehler}
+
+Kein Experiment kann den "wahren" Wert einer Größe bestimmen. Man unterscheidet zwei Fehlertypen: \\
+
+\textsc{systematische Fehler}
+\begin{itemize}
+\item Tritt bei wiederholter Messung immer in gleicher Weise auf 
+\item Jede Messung weicht systematisch vom wahren Wert ab 
+\item Mittlung führt nicht zu einer Verbesserung des Ergebnisses 
+\end{itemize}
+\textsc{statistischer Fehler} 
+\begin{itemize}
+\item Tritt bei wiederholter Messung unkontrolliert auf 
+\item Einzelmessungen unterliegen statistischen Schwankungen 
+\item Resultat nähert sich durch Mittelung mehrerer Messungen dem tatsächlichen Wert an
+\end{itemize}
+
+
+
+\subsection{Statistik der Fehler}
+
+Mittelwert bzw. arithmetisches Mittel:
+\begin{equation*}
+\bar{x}=\frac{1}{n} \sum_{i=1}^n x_i
+\end{equation*}
+Wenn eine Messung ausschließlich statistischen Fehlern unterliegt: 
+\begin{equation}
+x_w = \limn \frac{1}{n}\sum_{i=1}^n x_i
+\end{equation}
+
+Absoluter Fehler: 
+\begin{equation}
+e_i = x_w - x_i
+\end{equation}
+
+Absoluter Fehler des Mittelwerts:
+\begin{equation}
+\epsilon = x_w - \bar{x} = \frac{1}{n} \sum_{i=1}^n x_w - x_i
+\end{equation}
+
+Mittlerer Fehler des Mittelwerts:
+\begin{equation}
+\sigma_m = \frac{1}{n} \sqrt{\sum_{i=1}^n(x_w - x_i)^2}
+\end{equation}
+
+Mittlerer Fehler der Einzelmessung:
+
+\begin{equation}
+\sigma =  \sqrt{\frac{1}{n} \sum_{i=1}^n(x_w - x_i)^2}
+\end{equation}
+
+\subsubsection{Beobachtbare Größen für Fehler}
+
+Abweichung der Messung vom Mittelwert:
+
+\begin{equation}
+d_i = \bar{x} - x_i = x_w - x_i - (x_w - \bar{x}) = e_i - \epsilon
+\end{equation}
+
+Mittlere quadratische Abweichung:
+
+\begin{equation}
+s^2 = \frac{1}{n} \sum_{i=1}	^n d_i^2 = \frac{n-1}{n} \sigma 
+\end{equation}
+%Siehe vollständige Umformung auf OneNote oder probiert es selber, alle nötigen Informationen sind gegeben
+
+Standardabweichung der Einzelmessung:
+
+\begin{equation}
+\sigma = \sqrt{\frac{1}{n-1}} \sum_{i = 1}^2 (\bar{x} - x_i)^2
+\end{equation}
+
+Somit wird das Messergebnis oft in einer Sigma-Umgebung des Erwartungswertes angegeben $x = \bar{x} \pm \sigma_m $ \\
+
+\subsubsection{Verteilung der Fehler}
+
+Eine Funktion, die diese Verteilung beschreibt ist die Normalverteilung
+
+\begin{equation}
+f(x) = \frac{1}{\sigma \sqrt{2 \pi} } e^{-\frac{(x-x_w)^2}{2\sigma^2}}
+\end{equation}
+
+Anteil der Messergebnisse in einem bestimmten Wertebereich entspricht der Fläche unter der Normalverteilung (dem Integral)
+
+\begin{equation}
+\int_{-\infty}^\infty f(x) \diff x = 1
+\end{equation}
+
+Wahrscheinlichkeit, dass ein Intervall $x_w \pm \sigma $ liegt:
+
+\begin{equation}
+P(|x_w - x_i | \le \sigma) = \int_{-\infty}^\infty f(x) \diff x = 0.683 
+\end{equation}
+
+\begin{align*}
+P(e_i \le \sigma) &= 68\% \\
+P(e_i \le 2\sigma) &= 95\% \\
+P(e_i \le 3\sigma) &= 99.7\% \\
+\end{align*}
+
+Da im Bereich $x_w\pm \sigma $ nur 68\% der Messergebnisse liegen, werden in einem Graphen, in dem Messwerte und eine Fitfunktion gezeigt werden, ca. 32\% der Ergebnisse einen größeren Abstand vom Fit haben als ihr Fehlerbalken
+
+
+\section{Reibung}
+
+
+\subsection{Haft- und Gleitreibung}
+
+Reibungskoeffizient hat typische Werte von 0.1 bis 1.2 und ist von Faktoren wie Oberflächenbeschaffenheit und Materialkombinationen abhängig. Es gibt Haftreibung und Gleitreibung:\\
+
+\begin{align*}
+F_h &= \mu_h F_N \\
+F_g &= \mu_g F_N \\
+\end{align*}
+
+\subsection{Rollreibung}
+
+$\vec{D} = \vec{r} \times \vec{F}  $ instantane Rollbewegung Rotation um Kontaktpunkt. \\
+
+$D = \mu_R \cdot F_N$  \quad Bei Rollen ist in der Regel $\frac{mu_R}{r} = const.$
+
+$\frac{\mu_R}{r} \ll \mu_g $ für harte Flächen ist Rollreibung kleiner als Gleitreibung \\
+
+$\frac{\mu_R}{r} > \mu_g $	für weiche Oberflächen z.B Sand bzw. Schnee ist Rollreibung größer als Gleitreibung
+
+
+\subsection{Reibungsenergie}
+
+\begin{equation}
+\oint F_g \diff x = \int_{x_1}^{x_2} F_g \diff x + \int_{x_2}^{x_1} F_g \diff x \neq 0 
+\end{equation}
+
+Reibungsenergie ist die thermische Energie, die bei der Verformungen der Kontaktfläche entsteht.
+
+
+\section{Fourierzerlegung}
+Jedes Signal können wir auch im Frequenzraum darstellen
+\begin{equation}
+\hat{f}(\omega) = \mathcal{F}(f(t)) = \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^\infty f(t) e^{-i\omega t} \diff t 
+\end{equation}
+In Realität werden die Frequenzen in diskret abgetasteten Signalen bestimmt (endliche Messreihen)
+
+
+
+
+
+
+
+
+\newpage
+%TODO von Sven Erledigt
+\chapter{Thermodynamik}
+
+
+\section{Temperatur und Wärme}
+\subsection{Wärmeenergie}
+
+Für die Wärmeenergie gilt folgendes: 
+
+\begin{align}
+E \textsubscript{TH} = \frac{3}{2}k \textsubscript{b}T
+\end{align}
+Die 3 kommt von den 3 Freiheitsgraden einer Translation
+
+\subsection{Temperaturskalen}
+
+\begin{align}
+\intertext{Celsius Skala:} 
+T(C) = T(K) -273,15 \\
+\intertext{Fahrenheit Skala:} 
+T(F) = 1.8T(K) -459,67
+\end{align}
+
+\subsection{Wärmeausdehnung}
+
+\begin{align}
+\intertext{Für die Wärmeausdehnung gilt:}
+\frac{\Delta L}{L} = \alpha  \Delta T
+\end{align}
+
+\section{Kinetische Gastheorie}
+\subsection{Grundlegendes}
+Ein Gas wird durch seine vier Zustandsgrößen  Volumen $V$, Druck $p$, Temperatur $T$ und Stoffmenge $N$ vollständig beschrieben \\
+\\
+Wir treffen einige Annahmen, die dem idealen Gas zugrunde liegen sollen
+\begin{description}
+\item 1. Atome / Moleküle sind Massepunkte
+\item 2. Alle Stöße sind elastisch
+\item 3. Alle Raumrichtungen sind äquivalent 
+\item 4. keinen inneren Freiheitsgrade
+\end{description}
+
+\subsection{Brownsche Bewegung}
+Der schottische Botaniker Robert Brown entdeckte die unregelmäßige und ruckartige Bewegung kleiner Teilchen in Flüssigkeiten und Gasen. Seine Entdeckung gilt als der ersten stichhaltige Beweis für die Existenz von Atomen 
+\subsection{Herleitung der Idealen Gasgleichung}
+
+\begin{align}
+\intertext{Die ideale Gasgleichung lautet:}
+pV = Nk\textsubscript{b}T
+\intertext{oder:}
+pV = n N_Ak_bT
+\intertext{Hierbei ist $k_b$ die Boltzmannkonstante, $N_A$ die Avogadrozahl und $n$ die Stoffmenge in Mol}
+\intertext{Oft definiert man sich}
+R := N_Ak_b
+\intertext{$R$ ist dabei die Universelle Gaskonstante}
+\intertext{Überraschenderweise ist auch die Schallgeschwindigkeit Temperaturabhängig:}
+v\textsubscript{s} = \sqrt{\kappa \frac{k_bT}{m}}
+\end{align}
+Dabei ist $\kappa$ der Adiabatenkoeffizient, auf den in Kapitel 3.3.2 Spezifische Wärme genauer eingegangen wird.
+
+\subsection{Innere Energie}
+\begin{align}
+\intertext{Die Energie pro Freiheitsgrad beträgt}
+E\textsubscript{f} = \frac{1}{2}k \textsubscript{b}T
+\intertext{Die Gesamtenergie in allen Freiheitsgrade eines Stoffs nennen wir die Innere Energie. Es gilt:}
+U = \frac{1}{2}fNk \textsubscript{b}T
+\end{align}
+Dabei ist $N$ die Anzahl der Teilchen eines Stoffes und $f$ die Anzahl der Freiheitsgrade.
+
+\subsection{Diffusion}
+\begin{align}
+\intertext{Es gilt das Ficksche Diffusionsgesetz}
+\vec{j} = D \cdot \vec{\nabla}n
+\end{align}
+Dabei ist $ j $ der Teilchenstrom $\vec{\nabla}n$ das Konzentrationsgefälle und $D$ die Diffusionskonstante mit
+\begin{align}
+D = \frac{2}{3n\delta} \sqrt{\frac{2k_bT}{\pi m}}
+\end{align}
+Außerdem müssen wir $\delta$ als den Stoßquerschnitt definieren zu 
+\begin{align}
+\delta = \pi (r_1+r_2)^2
+\end{align}
+Aus dem Fickschen Diffsusionsgesetzt erkennt man leicht das $j \sim D \sim \sqrt{\frac{1}{m}}$;  leichtere Teilchen diffundieren also schneller!
+
+
+
+
+
+
+
+\section{Hauptsätze der Thermodynamik}
+
+
+\subsection{Grundlagen}
+Führt man einem Körper Energie zu (durch Verrichtung von Arbeit), so erwärmt er sich. Man findet folgende, tolle Beziehung:
+\begin{align}
+\Delta W = \Delta Q
+\end{align}
+Dabei ist $\Delta W $ die am Körper verrichtet Arbeit und $\Delta Q$ die Änderung der Wärmeenergie des Körpers. \\
+Oft ist die Umwandlung zwischen mechanischer Arbeit und Wärmeenergie reversibel.
+
+\subsection{Spezifische Wärme}
+Eine weitere wichtige und oft gebraucht Formel ist 
+\begin{align}
+\Delta W = \Delta Q = c\cdot m \cdot\Delta T
+\end{align}
+Hierbei ist $c$ die spezifische Wärmekapazität eines Stoffs / Materials \\
+\\
+Wichtig ist auch die Clausius-Clapeyronsche Gleichung (für reversible Prozesse) 
+\begin{align}
+\frac{dT}{dp} = \frac{T\Delta V}{\Delta L}
+\end{align}
+Aus dieser Gleichung lässt sich die für die Anwendung oft benötigte Formel herleiten,
+nämlich die Energie, die für den Schmelz- bzw. Verdampfungsvorgang benötigt wird
+\begin{align}
+Q = mL_{s/v}
+\end{align}
+Dabei ist $L_{s/v}$ die spezifische Schmelzwärme \\
+\\
+Weiter definieren wir uns die Molare Wärmekapazität bei konstanten Volumen zu
+\begin{align}
+C_V = cM_m = \frac{1}{2}fR
+\intertext{wobei $M_m$ für die Molare Masse steht}
+\intertext{Bei konstantem Druck (ideales Gas) definieren wir die Molare Wärmekapazität zu}
+C_P = C_V + R
+\end{align}
+Daraus ergibt sich schließlich die Definition des Adiabatenkoeffizietens zu 
+\begin{align}
+\kappa = \frac{C_P}{C_V} = \frac{f+2}{f}
+\end{align}
+Für ideale Gase ist $\kappa_{ideal} = \frac{5}{3}$, in Luft gilt $\kappa_{Luft} = 1.4$
+
+\subsection{Zustandsänderungen}
+Es folgt nun einer der wichtigste Sätze der Thermodynamik, nämlich der 1. Hauptsatz
+\begin{align}
+dU = dQ -pdV
+\end{align}
+\\
+Kommen wir zu den 4 verschieden Zustandsänderungen: \\
+\\
+\textbf{1. Isochore Prozesse ( $dV = 0$)} \\
+Hier gilt offensichtlich
+\begin{align}
+dU = dQ = nC_V dT
+\end{align}
+Aus der idealen Gasgleichungen bekommen wir außerdem 
+\begin{align}
+\frac{p_1}{p_2} = \frac{T_1}{T_2}
+\end{align}
+Die innere Energie lässt sich folgendermaßen berechnen
+\begin{align}
+U = \frac{3}{2}nR(T_2-T_1)
+\end{align}
+Das wir in der Experimentalphysik nur Volumen- und keine Druckarbeit betrachten ist bei einem isochoren Prozesse offensichtlich $W=0$ , denn unser Volumen $V$ ist ja konstant \\
+\\
+\textbf{2. Isotherme Prozesse ($ dT = 0 $)} \\
+Das unsere Temperatur konstant ist, ist auch $dU = 0$. Also gilt hier 
+\begin{align}
+dQ = pdV
+\end{align}
+Aus der idealen Gasgleichung erhalten wir außerdem 
+\begin{align}
+\frac{p_1}{p_2} = \frac{V_1}{V_2}
+\end{align}
+Es gilt weiterhin der Zusammenhang 
+\begin{align}
+dQ = -dW
+\end{align}
+Auch die verrichtete Arbeit können wir einfach berechnen: 
+\begin{align}
+W = - \int_{1}^{2} pdV
+\end{align}
+Formen wir dies mit der idealen Gasgleichungen um, bekommen wir einfache Beziehungen: 
+\begin{align}
+W_{12} = -nRT_1\ln{\frac{V_2}{V_1}} \\
+W_{12} = -p_1V_1\ln{\frac{V_2}{V_1}}
+\end{align}
+
+\textbf{3. Isobare Prozesse ( $ p = const$ )} \\
+Hier gilt 
+\begin{align}
+dQ = nC_pdT
+\end{align}
+Aus der idealen Gasgleichung folgt 
+\begin{align}
+\frac{V_2}{V_1} = \frac{T_2}{T_1}
+\end{align}
+Die innere Energie lässt sich wie beim isochoren Prozesse berechnen mit: 
+\begin{align}
+U = \frac{3}{2}nR(T_2-T_1)
+\end{align}
+Für verrichtete Arbeit gilt wieder 
+\begin{align}
+W = - \int_{1}^{2} pdV
+\end{align}
+Beziehungsweise ausgerechnet dann 
+\begin{align}
+W_{12} = p(V_1-V_2) \\
+W_{12} = nR(T_1-T_2)
+\end{align}
+\\
+
+\textbf{4. Adiabatische Prozesse ($dQ = 0$)} \\
+Anders als bei den anderen Zustandsänderungen ändert sich hier jede Zustandsgröße \\
+Mit dem ersten Hauptsatz gilt 
+\begin{align}
+dU = -pdV = dW = nC_VdT
+\end{align}
+Mit etwas umformen erhalten wir die beiden Poissonschen Gleichungen nämlich 
+\begin{align}
+TV^{\kappa -1} = const
+\end{align}
+und 
+\begin{align}
+pV^{\kappa} = const
+\end{align}
+
+
+\subsection{Kreisprozesse / Wärmekraftmaschinen}
+Ebenfalls einer der wichtigsten Sätze der Thermodynamik ist der 2. Hauptsatz. Er lautet: 
+\begin{theorem}
+Alle vollständig reversiblen Kreisprozesse haben den gleichen Wirkungsgrad.
+\end{theorem}
+Oder auch 
+\begin{theorem}
+Es gibt keine Maschine, die ausschließlich Wärme von einem kalten in ein wärmeres Reservoir transportiert
+\end{theorem}
+Zum Wirkungsgrad: Der Wirkungsgrad des Carnot-Prozess ist 
+\begin{align}
+\eta = 1- \frac{T_2}{T_1} 
+\end{align}
+Im allgemeinen gilt 
+\begin{align}
+\eta = \left| \frac{W_{ges}}{dQ_1} \right| = 1 - \left| \frac{dQ_2}{dQ_1} \right|
+\end{align}
+Der Carnot-Prozess ist der optimale Kreisprozess. Daher gilt immer 
+\begin{align}
+\eta_{real} \leq \eta_{carnot}
+\end{align}
+
+
+\section{Entropie}
+
+\subsection{Definition}
+Die Entropie ist eine Zustandsgröße und beschreibt salopp ausgedrückt die Unordnung in einem System. Wir definieren:
+\begin{align}
+\Delta S = S_2 - S_1 = \int_{1}^{2} \frac{dQ}{T}
+\end{align}
+In geschlossenen System gilt folgender Zusammenhang: \\
+\\
+\hspace*{3cm}$\Delta S = 0$ für reversible Systeme \\
+\hspace*{3cm}$\Delta S > 0$ für irreversible Systeme\\
+
+Es folgt der 3. und letzte Hauptsatz der Thermodynamik
+\begin{align}
+\lim_{T \to 0} S(T) = 0
+\end{align}
+\subsection{Entropieänderungen}
+Die Entropieänderung ist unabhängig vom Weg $1 \longrightarrow 2$
+Es gilt 
+\begin{align}
+\Delta S = nR\ln{\frac{V_2}{V_1}} + nC_V\ln{\frac{T_2}{T_1}}
+\end{align}
+Da bei adiabatische Prozessen $dQ = 0$ gilt, ist logischerweise $\Delta S = 0$
+
+
+\section{Reale Gase}
+
+\subsection{Zustandsgleichung realer Gase}
+Die Abweichung zur idealen Gasgleichung entsteht auf Grund von Teilchen-Teilchen Wechselwirkungen
+Die Zustandsgleichung ergibt sich deshalb zu
+\begin{align}
+(p+\frac{a}{V^2})(V-b) = Nk_bT
+\end{align}
+Dabei sind $a$ und $b$ materialspezifische Parameter.
+
+\subsection{Phasenübergänge im Detail}
+Die für den Schmelzvorgang benötigte Wärmeenergie beträgt 
+\begin{align}
+Q_S = nT\frac{dp}{dT}(V_{fl} - V_f)
+\end{align}
+Der Verdampfungsvorgang verläuft analog 
+\begin{align}
+Q_D = nT\frac{dp}{dT}(V_{g} - V_{fl})
+\end{align}
+
+\section{Wärmetransport}
+
+
+\subsection{Wärmeleitung in Festkörpern}
+In einer Dimension und im Gleichgewicht gilt 
+\begin{align}
+P = \frac{dQ}{dt} = - \lambda (T_2-T_1)\frac{A}{l}
+\end{align}
+Dabei ist $T_2 < T_1$ und $\lambda$ ist die materialspezifische Wärmeleitfähigkeit mit $[\lambda] = \frac{W}{mK}$ \\
+\\
+Allgemeiner ist die sogenannte Wärmeleitungsgleichung oder auch Bewegungsgleichung der Temperatur
+\begin{align}
+\frac{dT}{dt} = \frac{\lambda}{\rho c_m}\frac{\partial^2 T}{\partial x^2}
+\end{align}
+
+\subsection{Wärmeleitung in Gasen}
+Der Wärmetransport findet durch Streuung und Transport von Teilchen statt. Es ergibt sich dann
+\begin{align}
+\frac{dQ}{dt} = \chi A(T_1-T_2)
+\end{align}
+Dabei ist $\chi$ die Wärmeübergangszahl mit der Einheit $[\chi] = \frac{W}{m^2K}$ \\
+\\
+Mit Hilfe der kinetische Gastheorie findet man, dass 
+\begin{align}
+\chi \sim \sqrt{\frac{1}{m}}
+\end{align}
+Leichtere Gase übertragen also Wärme besser 
+
+\subsection{Wärmestrahlung}
+Wärmetransport findet über elektromagnetische Strahlung statt \\
+Empirisch wurde folgender Zusammenhang entdeckt
+\begin{align}
+I = \sigma A T^4
+\end{align}
+Dabei ist $I$ die Intensität, $\sigma$ ist die Stefan-Boltzmann-Konstante und $A$ die Fläche des Strahlers \\
+\\
+Wir definieren uns die Emessivität zu 
+\begin{align}
+\varepsilon = \frac{I_{real}}{I_{schwarz}}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+%TODO Thomas Stegmeyer
+
+\chapter{Elektodynamik}
+\section{Elektrostatik}
+
+\subsection{Ladung}
+
+\emph{Wesentliche Größen}\\
+
+
+Elektrische Ladung		Q, q\\
+Elektrisches Feld 		$ \vec{E} $\\
+Elektrisches Potential		$ \phi $\\
+Elektrische Spannung		U 	(im Englischen V)\\
+Elektrische Kapazität		C\\
+
+
+\emph {Ladung}\\
+
+ist eine Eigenschaft der Materie, bzw. der Elementarteilchen.\\
+Es gibt nur zwei Arten von Ladung, positiv und negativ.\\
+Die Ladung ist quantisiert.\\
+
+Elementarladung 		$ e = 1,602\cdot10\textsuperscript{-19} C $ (Coulomb) \\		
+
+Es gibt nur zwei stabile, geladene (Elementarteilchen-) teilchen:\\
+	Elektron		$ e\textsuperscript{-} $\\
+	Proton		p\\
+
+
+\emph{Ladung ist erhalten!}\\
+
+\subsection{Coulomb-Wechselwirkung}
+$ F\textsubscript{ij} $ die Kraft, die Körper j durch Wechselwirkung mit Körper i erfährt.\\
+\begin{equation}
+\vec{F \textsubscript{12}} = \frac{1}{4 \pi \epsilon \textsubscript{0}} \cdot \frac{q\textsubscript{1} \cdot  q\textsubscript{2}}{\bigl | \vec{r\textsubscript{12}}\bigl| \textsuperscript{2}} \cdot \hat{r\textsubscript{12}}
+\end{equation}
+$ mit 	\ \epsilon\textsubscript{0} = 8,854 \cdot 10\textsuperscript{-12} \frac{C}{Vm} $ (Dielektrizitätskonstante / el. Feldkonstante) 
+
+\subsection{Feldlinien}
+Das el. Feld beschreibt den Einfluss einer Ladung auf die Umgebung\\
+Dazu betrachten wir die Kraft, die Q auf eine Probeladung ausübt, die selbst das Feld nicht verändert (q $ \ll $ Q)\\
+
+Def: $ \vec{F\textsubscript{12}}(\vec{r}) = q \cdot \vec{E}(\vec{r\textsubscript{12}}) $ \\
+	$		 Formal: \vec{E}(\vec{r}) = \lim \limits_{q \to 0}\  \frac{1}{q} \cdot \vec{F}\textsubscript{12} $\\
+\\
+$ Einheit: [\bigl |\vec{E} \bigl|] = \frac{N}{C} $\\
+
+- Richtung der Feldlinie zeigt die Richtung der resultierenden Kraft auf eine positive Probeladung\\
+- An jedem Punkt zeigt die Tangente an eine Feldlinie die Richtung der Kraft auf die Probeladung\\
+- Die Dichte der Feldlinien zeigt die Stärke des Felds\\
+- Feldlinien beginnen immer an einer positiven Ladung und enden immer an einer negativen Ladung\\
+- es gibt keine offenen Feldlinien!\\
+
+\emph{Für el. Felder gilt das Superpositionsprinzip}\\
+Wenn $ \vec{E}\textsubscript{a} $ das el. Feld der Ladung Q\textsubscript{a} und $ \vec{E}\textsubscript{b} $ das el. Feld der Ladung Q\textsubscript{b} beschreibt, dann ist
+$ \vec{E}= \vec{E}\textsubscript{a} + \vec{E}\textsubscript{b} $ das el. Feld des Gesamtsystems\\
+Allgemein:
+\begin{equation}
+\vec{E}(r) = \sum\limits_{i} \vec{E}\textsubscript{i} = \sum\limits_{i} \frac{q\textsubscript{i}}{4 \pi \varepsilon\textsubscript{0}} \cdot  \frac{\vec{r} - \vec{r}\ \sp{\prime}}{\bigl| \vec{r} - \vec{r} \ \sp{\prime} \bigl| \textsuperscript{3}}\cdot d \vec{r} \ \sp{\prime}
+\end{equation}
+
+\emph{Feldemission}\\
+Ionisation von Molekülen und folgende Beschleunigung der Ionen und Elektronen im starken el. Feld\\
+
+\emph{Elektrisches Feld an leitenden Grenzflächen}\\
+- Das el. Feld steht senkrecht auf der leitenden Oberfläche!\\
+- ohne äußeren Einfluss (z.B. Symmetriebruch) haben leitende Oberflächen keine unterschiedlichen Partialladungen \\
+- Innenraum geschlossener Leiter ist feldfrei\\
+
+\subsection{Elektrischer Fluss}
+Wir betrachten den Fluss des el. Feldes durch eine Fläche A
+\begin{equation}
+\Omega = \int_A \varepsilon\textsubscript{0}\ \vec{E}\textsubscript{0}\ d\vec{A}
+\end{equation}
+$ d\vec{A} $ ist der Normalenvektor auf der Fläche dA\\
+
+\emph{für geschlossene Flächen}\\
+- der el. Fluss durch eine geschlossene Fläche ist gleich der eingeschlossenen Ladung mal einer Proportionalitätskonstante\\
+- Falls keine Ladung von der Fläche A eingeschlossen wird, ist der el. Fluss null\\
+
+Allgemein für alle geschlossenen Flächen:\\
+\begin {equation}
+\Omega = \oint_A \vec{E} \ \varepsilon\textsubscript{0}\ dA = \int_V \rho(\vec{r})\ dV
+\end{equation}
+
+\emph{1. Maxwell-Gleichung}\\
+\begin{equation}
+div \vec{E} = \frac{1}{\varepsilon\textsubscript{0}}\ \rho
+\end{equation}
+in Worten: Die Quellen und Senken des el. Feldes sind die Ladungen\\
+
+\emph{Faraday-Käfig}\\
+... Hohlraum umgeben von einer leitenden (metallischen) Schale, \\
+- ist feldfrei und ladungsfrei\\
+- die Ladungen sitzen nur auf der Oberfläche\\
+- durch Auftragen von Ladungen an der Innenseite können extrem hohe Spannungen generiert werden, denn im Inneren aufgebrachte Ladung wird zur Außenseite transportiert (Bandgenerator / van de Graaf Generator)\\
+
+\subsection{Influenz}
+leitende Körper wirken auf ein von außen erscheinendes Feld durch Verschiebung von Ladungen\\
+$ \Rightarrow $ es kommt zu einer influenzierten Ladung\\
+
+\subsection{Elektrisches Potential / Spannung}
+Für Ladungen, welche sich in einem el. Feld auf einer geschlossenen Bahn bewegen gilt: 
+\begin{equation}
+\oint \vec{E} ds = 0
+\end{equation}
+
+
+1) Bewegung einer Ladung im el. Feld ist ein reversibler Prozess W\textsubscript{12} = -W\textsubscript{21}\\
+2) Es muss gelten W\textsubscript{12}(S\textsubscript{1}) = W\textsubscript{12}(S\textsubscript{2})\\
+
+$ \Rightarrow $ Man kann ein Potential definieren\\
+
+
+$ \vec{E} = - \vec{\nabla} \phi $ mit $ \phi $ elektrostatisches Potential (Skalar)\\
+
+Potentiale sind immer bis auf eine konstante Referenz definiert\\
+\begin{equation}
+\phi (\vec{r}) = \phi(\vec{r} \textsubscript{0}) - \int_{\vec{r}\textsubscript{0}}^{\vec{r}} E(\vec{r} \ \sp{\prime}) d\vec{r}\ \sp{\prime}\\
+\end{equation}
+$ \Rightarrow $ Nur Potentialdifferenzen messbar.\\
+Diese Potentialdifferenzen nennen wir Spannung 
+
+\begin{equation}
+U = \phi (\vec{r}\textsubscript{2}) -  \phi (\vec{r}\textsubscript{1}) = - \int_{\vec{r}\textsubscript{1}}^{\vec{r}\textsubscript{2}} \vec{E} ds
+\end{equation}
+Einheit:\\
+$ [U] = \frac{N}{C} \cdot m = \frac{J}{C} = V ... Volt $ \\
+
+\subsection{Äquipotentiallinien}
+Konstruiere Linien konstanten Potentials\\
+$ \rightarrow $ Bewegung auf diesen Linien geschieht ohne Verrichtung von Arbeit\\
+$ \rightarrow $ Äquipotentiallinie steht senkrecht auf dem el. Feld\\
+
+$ \Rightarrow$ Insbesondere sind die Oberflächen leitender Materialien auf dem gleichen Potential\\
+Auch für Potentiale gilt das Superpositionsprinzip\\
+
+\subsection{Potentiale und Ladungsdichten}
+ \begin{equation}
+\rho \sim \frac{1}{A}
+\end{equation}
+$ \Rightarrow$ Gleiches Potential bedeutet nicht gleiche Ladungsdichte
+
+\section{Kapazität und Plattenkondensator}
+
+\subsection{Plattenkondensator}
+Wir definieren die Kapazität
+\begin{equation}
+C = \frac{Q}{U}
+\end{equation}
+Einheit: $ [C] = \frac{C}{V} =: F ... Farad$\\
+
+Weiter gilt:
+\begin{equation}
+C = \varepsilon_0 \cdot \frac{A}{d}
+\end{equation}
+\begin{equation}
+E_{el} = \frac{1}{2} \cdot Q \cdot U = \frac{1}{2} \cdot C \cdot U^2 = \frac{1}{2} \frac{Q^2}{C}
+\end{equation}
+\begin{equation}
+F_{el} = \frac{U \cdot Q}{d} 
+\end{equation}
+
+
+\subsection{Polarisation}
+Um das Verhalten von isolierenden Materialien in el. Feldern zu beschreiben, führen wir die Polarisation ein:
+\begin{equation}
+\vec{p} = \chi_e \cdot \varepsilon_0 \cdot \vec{E} 
+\end{equation}•
+mit $ \chi_e ... $ elektrische Suszeptibilität
+
+
+%Hier fehlt Dipolmoment, aber da weiß ich nicht was wir von dem Aufschrieb alles übernehmen wollen
+
+\subsection{Dielektrika in Kondensatoren}
+Effektiv erhöht ein Dielektrikum die Kapazität eines Kondensators\\
+Wir definieren die Dielektrische Verschiebung:\\
+$ D .= \varepsilon_0 \cdot E + p $\\
+Weiter definieren wir die Delektrizitätskonstante:\\
+$ \varepsilon_R := 1+ \chi_0 $ \\
+
+Damit gilt für Kondensatoren mit Delektrika:\\
+$ C = \varepsilon_0 \cdot \varepsilon_R \cdot \frac{A}{d} $\\
+$ E = \frac{1}{\varepsilon_0\cdot\varepsilon_R}\cdot \frac{Q}{A}$\\
+Folglich steigt die Kapazität um $\varepsilon_R $, das el. Feld sinkt um Faktor $ \varepsilon_R$\\
+
+\section{Ohmsche Leiter}
+
+
+\subsection{Leitfähigkeit}
+Eine von außen aufgezwungene Potentialdifferenz führt zur Beschleunigung von Elektronen in einem Leiter
+% muss noch gemacht werden, weiß nicht, was da alles rein soll
+
+\subsection{Ohmsches Gesetz}
+\begin{equation}
+R = \frac{U}{I}
+\end{equation}
+Das Ohmsche Gesetz gilt in allen Materialien bei allen Längenskalen, mit Ausnahme von Supraleitern\\
+Einheit: $ [R] = \frac{V}{A} = \Omega $ ... Ohm \\
+
+\subsection{Elektrische Arbeit und Leistung}
+el. Arbeit (Arbeit die aufgewandt wird, um die Ladung q von $ \Phi_1$ nach $ \Phi_2 $ zu bringen):\\
+\begin{equation}
+W_{1\rightarrow2} = q\cdot \int_{r\textsubscript{1}}^{r\textsubscript{2}} \vec{E}ds = q\ (\Phi_1 - \Phi_2) = q\cdot U
+\end{equation}
+
+Beachte: El. Wärmeäquivalent: Die el. Arbeit wird in Ohmschen Leitern komplett in thermische Energie umgewandelt
+
+
+\begin{equation}
+\Rightarrow P = \frac{dW}{dt} = \frac{\partial q}{\partial t} U + \frac{\partial U}{\partial t} q  
+\end{equation}
+wobei $ \frac{\partial U }{\partial t} U = 0 $, wenn U = const.
+
+\begin{equation}
+\Rightarrow P = I\cdot U
+\end{equation}
+
+\subsection{Leitungsmechanismen}
+\emph {Metallische Leiter}\\
+Ladungsträger sind Elektronen, die sich im Material frei bewegen können.\\
+fast immer $ n \approx const.$ \\
+\begin{equation}
+\sigma = \frac{n\cdot e^2 \tau}{m_e}
+\end{equation}
+typische Werte: $ \sigma \approx 10^7 \frac{1}{\Omega \cdot m}$ \\
+
+\emph{Ionenleitung}\\
+tritt auf, wenn Strom durch Ionen getragen wird,\\
+z.B.: Elektrolyten, ionischen Schmelzen, Ionenkristalle, Plasma\\
+$ \sigma_{kat} = z_ke \cdot n_k \cdot \mu_k$\\
+$\sigma_{Anion} = z_Ae \cdot n_A \cdot \mu_A$\\
+
+Bemerkungen: \\
+- Wegen Ladungsneutralität ($ Q_{ges} = 0 $) gilt: $z_A n_A = z_k n_k$\\
+-ionischer Stromtransport ist auch Massetransport\\
+-typische Werte $ \sigma \approx 1 \cdot \frac{1}{\Omega\cdot m} $\\
+
+\emph{Halbleiterleitung}\\
+oft beschrieben als metallische Leiter mit thermisch angeregten Ladungsträgern.\\
+n-Dotierung: Durch thermische Anregung kann ein e\textsuperscript{-} in den Halbleiter abgegeben werden\\
+p-Dotierung: Durch thermische Anregung kann ein Elektron aus dem Kristall gebunden und ein Loch an den Kristall gegeben werden\\
+$\Rightarrow \ \sigma$ ist einstellbar\\
+\\
+$ \sigma \approx 10^{-3} \frac{1}{\Omega m} $ intrinsischer Halbleiter (keine Dotierung)\\
+\\
+$ \sigma \approx 10^{5} \frac{1}{\Omega m} $ entartet dotierte Halbleiter\\
+
+\subsection{Kontaktpotential}
+Beim Kontakt von zwei leitfähigen Materialien entsteht eine Spannung, die Kontaktspannung.\\
+Austrittsarbeit: Energie, die notwendig ist, um ein Elektron aus dem Material ins Vakuum zu bringen.\\
+Bsp.:\\
+Al: $W_A \approx 4.1 eV $\\
+Cu: $ W_A \approx 4.5 eV$\\
+W\textsubscript{A} ist material- und oberflächenabhängig\\
+
+Def.: Elektronenvolt\\
+$ 1eV = 1.602 \cdot 10^{-19} J $ \\
+Die Energie die ein Elektron gewinnt, wenn es bei einer Potentialdifferenz von 1V beschleunigt wird\\
+
+\subsection{Schaltkreise}
+Die I(U) Kennlinie stellt die Beziehung zw. Stom, der durch ein Bauelement fließt, und die Spannung, die über dem Bauelement abfällt, her.\\
+
+\section{Magnetostatik}
+\subsection{Grundlegendes}
+Magnetische Wechselwirkungen bestehen zwischen:\\
+- bewegten Ladungen (el. Strom)\\
+- magnetischen Momenten (atomar: Elektronenspin, Kernspin, Orbitalmomente)\\
+
+$ \vec{B} (\vec{r}) $ ist das Magnetfeld am Ort $ \vec{r} $ \\
+Empirische Erkenntnis:\\
+\begin{equation}
+div \vec{B} = 0 \ \ \ \ Maxwell - Gleichung
+\end{equation}
+d.h. das magnetische Feld ist quellenfrei. Es gibt keine magnetischen Ladungen.\\
+
+\subsection{Das Magnetfeld}
+Ein Magnetfeld wirkt eine Kraft auf eine bewegte el. Ladung aus
+\begin{equation}
+\vec{F}_B = q\cdot \vec{v} \times \vec{B}
+\end{equation}
+Diese Gleichung definiert das Magnetfeld\\
+Einheit des Magnetfeldes:\\
+$ [\vec{B}] = \frac{N}{C \cdot \frac{m}{s}} = \frac{N}{As} =: T  $... Tesla \\
+
+Für q $>$ 0 gilt die rechte Hand-Regel\\
+Für q $<$ 0 gilt die linke Hand-Regel\\
+
+\subsection{Lorentzkraft}
+die magnetische und el. Kraft auf geladene Teilchen\\
+\begin{equation}
+F = q \cdot (\vec{E} + \vec{v} \times \vec{B})
+\end{equation}
+
+\subsection{Erzeugung von Magnetfeldern}
+Bewegte el. Ladungen erzeugen ein Magnetfeld nach der Rechten-Hand-Regel\\
+
+$ \vec{B} = \frac{\mu_0}{2\pi} \cdot \frac{\vec{j} \times \vec{r}}{\bigl| \vec{r} \bigl| \textsuperscript{2}}$\\
+
+Magnetfeld eines langen, stromdurchflossenen Leiters: 
+\begin{equation}
+B = \frac{\mu_0}{2\pi}\cdot \frac{I}{r}
+\end{equation}
+
+\subsection{Der magnetische Fluss}
+...ist quantisiert, experimentell nachweisbar über kleine, supraleitende Ringe (sog. SQUIDS), kann im Alltag aber als kontinuierlich angenommen werden\\
+\begin{equation}
+\Phi_B = \int_A \vec{B}d\vec{A}
+\end{equation}
+$\Phi_B = N\cdot\Phi_m$\\
+mit: $\Phi_m = \frac{h}{2e} $ magnetisches Flussquant\\
+
+\emph{Magnetischer Fluss durch eine geschlossene Fläche}
+\begin{equation}
+\int_A \vec B d \vec A = \int_V div \vec{B} dV = 0
+\end{equation}
+Der magnetische Fluss einer geschlossenen Fläche ist null.
+
+\subsection{Das Amperesche Gesetz}
+...stellt eine quantitative Beziehung zwischen Stromdichte und Magnetfeld her.
+\begin{equation}
+rot \vec{B} = \mu_0 \vec{j}
+\end{equation}
+\begin{equation}
+\oint_{S\textsubscript{2}} \vec{B}d\vec{s} = \mu_0 \cdot I
+\end{equation}
+
+Es gilt das Superpositionsprinzip
+
+\subsection{Magnetfeld einer idealen Spule}
+\begin{equation}
+\tilde{I} = \frac{N}{L} \cdot I \cdot dl
+\end{equation}
+Das Magnetfeld muss parallel zu z liegen\\
+
+Im Inneren der idealen Spule ist das Magnetfeld konstant. Außerhalb der Spule ist das Magnetfeld null.\\
+In der realen Spule gilt diese Näherung besser mit steigendem Abstand zum Rand\\
+
+\subsection{Magnetfelder beliebiger Stromverteilungen}
+
+Für jedes Vektorfeld mit div $\vec{B}$ = 0 gibt es ein Vektorpotential $\vec{A}$, sodass gilt:\\
+\begin{equation}
+rot \vec{A} = \vec{B}
+\end{equation}
+Zusätzliche Festlegung: div$\vec{A} = 0$ "Coulomb - Gleichung" \\
+
+Daraus folgt:\\
+\begin{equation}
+\Delta \vec{A} = - \mu_0 j
+\end{equation}
+sowie:
+\begin{equation}
+\vec{B} = \frac{\mu_0}{4\pi} \cdot \int_V \frac{\vec{j} \vec{r}\ \sp{\prime} \times (\vec{r} - \vec{r}\ \sp{\prime} )} {\bigl|\vec{r} - \vec{r}\ \sp{\prime} \bigl|^3} d^{3}\ \vec{r}\sp{\prime}
+\end{equation}\\
+
+\emph{Magnetfeld einer bewegten Punktladung}\\
+\begin{equation}
+j(\vec{r}\ \sp{\prime}) = q\vec{v}\delta(\vec{r})
+\end{equation}
+\begin{equation}
+B(\vec{r}) = \frac{\mu_0}{4\pi} q \frac{\vec{x}\times \vec{r}}{\bigl|\vec{r}\bigl|^3}
+\end{equation}
+sofern Punktladung am Ort $\vec{r} = 0$ ist\\
+
+\emph{Magnetfeld bel. Stromfäden (Drähte)}
+$\vec{j}dV = \vec{j}d\vec{A}d\vec{s} = Ids $ für Stromfäden\\
+Biot Savart Gesetz:
+\begin{equation}
+B(\vec{r}) = - \frac{\mu_0 I}{4\pi} \int_S \frac{(\vec{r} - \vec{r} \ \sp{\prime}) \times d\vec{s}}{\bigl|\vec{r} - \vec{r} \ \sp{\prime} \bigl|^3}
+\end{equation}
+
+\emph{Magnetfeld einer Leiterschleife}
+einfache Lösung ist entlang der z-Achse, der Rest geht nur numerisch oder anders kompliziert.
+
+\begin{equation}
+\vec{B}(z) = \frac{\mu I }{4\pi} \cdot \frac{\pi R^2}{(r^2 + R^2)^{3/2}} \cdot \hat{z}
+\end{equation}
+Magnetfeld fällt mit $ \frac{1}{r^3} $ sehr schnell ab
+
+\emph{Helmholtz - Spulenpaar}\\
+Das Magnetfeld zwischen den beiden Spulen ist konstant
+\begin{equation}
+B_z \approx \frac{\mu_0 I}{(\frac{5}{4})^{\frac{3}{2}}R} 
+\end{equation}für z $\rightarrow $ 0\\
+
+die Anti-Helmholtz-Anordnung erzeugt bei z $\rightarrow$ 0 ein Gradientenfeld\\
+$ B(z) \sim z $ d.h. $\frac{\partial{B}}{\partial z}  = const$
+
+\subsection{Magnetische Dipolmomente}
+kleine magnetische Momente lassen sich oft als magnetische Dipole beschreiben.\\
+Dies gilt meist für f $\gg$ R, wenn R die relevante Größe des Magneten ist.
+
+\emph{Das magnetische Dipolfeld}
+\begin{equation}
+B(\vec{r}) = \frac{\mu_0}{4\pi}\cdot \frac{3\hat{r}(\vec{m}\cdot\vec{r})-\vec{m}}{\bigl|\vec{r}\bigl|^3}
+\end{equation}
+wobei $ \hat{r} = \frac{\vec{r}}{\bigl|\vec{r}\bigl|}$ und:\\
+$ \vec{m} $... magnetisches Dipolmoment\\
+$[\vec{m}] = Am^2 = \frac{J}{T} $\\
+Details des Magneten sind in $\vec{m}$ enthalten.\\
+
+Stromschleife: $ N\cdot I\cdot \vec{A} $ (mit N als die Anzahl der Windungen)\\
+Elektron: $ \bigl|\vec{m}\bigl| = g \mu_B$  \\mit $\mu_B = 9.27\cdot10^{-14} Am^2 $ Bohr'sches Magneton, \\und g = 2.0023 für Elektronen (g-Faktor)
+
+\emph{Drehmoment auf magnetischen Dipol}
+\begin{equation}
+\vec{D} = \vec{m} \times \vec{B}
+\end{equation}
+
+\emph{Kraft auf magnetischen Dipol}
+\begin{equation}
+\vec{F} = (\vec{m} \cdot \vec{\nabla})\cdot\vec{B} = (m_x\frac{\partial}{\partial x} + m_y\frac{\partial}{\partial y} + m_z\frac{\partial}{\partial z}) \cdot \left( \begin{array}{c} B_x \\\ B_y \\\ B_z \\\ \end{array}\right) 
+\end{equation}
+
+\emph{Potentielle Energie}
+\begin{equation}
+E_d = -\vec{m} \cdot \vec{B}
+\end{equation}
+Magnetische Dipole bewegen sich derart, dass sie ihre potentielle Energie minimieren.\\
+In inhomogenen Feldern werden magnetische Dipole in den Bereich des größten magnetischen Feldes gezogen (Vorzeichen beachten).
+
+\emph{atomare magnetische Momente}
+%Den Part habe ich nicht gerafft und weiß auch nicht was wir da abschreiben wollen
+
+\subsection{Magnetismus in Materie}
+magnetische Materie: Atome mit permanenten magnetischen Dipolen\\
+nichtmagnetische Materie: Atome ohne permanente magnetische Dipole\\
+$\rightarrow$ kein Orbital- und Spinmoment\\
+$\rightarrow$ induzierbare Dipole\\
+
+$\Rightarrow$  atomare Dipolmomente wechselwirken miteinander\\
+Im Festkörper ist die Position der Atome (magn. Dipole) fest durch chemische Bindung\\
+$\Rightarrow$ Es bleibt Drehmoment, dass die Momente ausrichtet\\
+
+Bereiche, in denen alle Momente gleich ausgerichtet sind: Weiß'sche Bezirke\\
+Ausrichtung der magnetischen Momente geschieht sprunghaft und korreliert\\
+(siehe auch Barkhausen Effekt, (nicht in diesem Skript enthalten))\\
+
+Magnetisierung: 
+\begin{equation}
+\vec{M} = \frac{1}{V} \cdot \sum_i \vec{m}_i
+\end{equation} 
+mit V ... Volumen\\
+
+\emph{Para- vs. Ferromagnetismus}\\
+magnetische Unordnung  $\xtofrom[\text{störende Einflüsse / Temperatur}]{\text{Dipol-Dipol-WW}}$ magnetische Ordnung\\
+
+Paramagnetismus: (schwacher Magnetismus) $ \bigl| \vec{m}_i \bigl|> 0  $ aber B = 0 ist $\bigl| \vec{M} \bigl| = 0 $\\
+Ferromagnetismus: (starker Magnetismus) $ \bigl| \vec{m}_i\bigl| > 0  $ aber B = 0 ist $\bigl| \vec{M} \bigl| \neq 0 $\\
+Übergang ist temperaturabhängig\\
+
+\emph {Magnetische Feldstärke (B) vs. magn. Erregung (H) }\\
+B ist die Gesamtfeldstärke, d.h. externes Feld B\textsubscript{0} plus magnetische Felder von Materie
+
+\begin{equation}
+\vec{B} = \vec{B}0 + \vec{B}{Mat} = \mu_0 \vec{H} + \mu_0 \vec{M}
+\end{equation}
+Für (kleine) Felder gilt: $ \vec{M} = \chi_m \vec{H} $ mit $\chi_m $ magnetische Suszeptibilität\\
+
+Definition:\\
+$\mu_R = 1+\chi_m $\\
+
+$\Rightarrow \vec{B} = \mu_0\mu_R \vec{H} $\\
+
+$[\chi_m] = 1$\\
+$\chi_m$ ist material-, temperatur-, und magnetfeldabhängig\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Elektrodynamik}
+\subsection{Induktion}
+
+Ein zeitlich veränderlicher magnetischer Fluss induziert Spannung und elektrische Ströme. \\ \\
+Das Faradaysche Induktionsgesetz liefert uns einen Zusammenhang zwischen induzierter Spannung und der Änderung des magnetischen Flusses 
+\begin{align}
+U_{ind} = - \frac{d}{dt} \phi_m(t) = - \frac{d}{dt} \int_{A} \vec{B}d\vec{A}
+\end{align}
+
+Der magnetische Fluss ändert sich wenn entweder $\frac{dB}{dt} \neq 0$ oder $\frac{dA}{dt} \neq 0$ gilt. \\
+Bemerkung zum Vorzeichen: Ist $\frac{dB}{dt} > 0 $ $\Rightarrow$ $ U_{ind} < 0$ \\ \\
+Ein weiterer zentraler Zusammenhang ist das 2. Maxwellgesetz für zeitlich verändliche Felder. Es besagt 
+\begin{align}
+rot \vec{E} = - \frac{dB}{dt}
+\end{align} 
+\\
+Zentral für das Verständnis dieses Themas ist die Lenzsche Regel:
+\begin{theorem}[Lenzsche Regel]
+Wird durch eine Änderung des magnetischen Flusses in einer Leiterschleife eine Spannung induziert, so erzeugt der dadurch fließende Strom ein Magnetfeld, welches der Änderung des magnetischen Flusses entgegenwirkt.
+\end{theorem}
+
+Die Größe des induzierten Magnetfelds hängt von der Leitfähigkeit des Materials ab 
+\begin{align}
+U_{ind} \sim I \sim B_{ind} \sim F_{ind}
+\end{align}
+\\
+Die induzierte Kraft wirkt wie eine Reibungskraft und findet Anwendung z.B. als Wirbelstrombremse. Wichtig dabei: Die Wirbelströme müssen sich ausbreiten können. \\ \\
+In allen Materialien, die kein permanentes magn. Dipolmoment besitzen, führt Induktion zu einem induzierten magn. Dipolmoment
+\begin{align}
+\vec{m} = \chi_m H 
+\end{align} 
+wobei $\chi_m < 0 $ gilt. \\ \\
+\underline{\textbf{Induktivität / Selbstinduktion: }} \\ 
+Wir wissen 
+\begin{align}
+0 \neq \frac{dI}{dt} \sim \frac{dB}{dt} \sim \frac{d\phi_m}{dt} \sim U_{ind} \neq 0
+\end{align}
+Also können wir schließen, dass 
+\begin{align}
+U_{ind} = - L \frac{dI}{dt}
+\end{align}
+wobei $L$ die Induktivität einer Spule ist mit $[L] = \frac{Vs}{A} =: H$. $H$ steht dabei für Henry. \\ \\
+\underline{\textbf{Lange Spulen}} \\
+Für das Magnetfeld im Inneren einer langen Spule gilt 
+\begin{align}
+B_{innen} = \mu_0 \frac{N}{l} I
+\end{align}
+Damit können wir auch den magnetische Fluss im inneren der Spule darstellen
+\begin{align}
+\phi_{innen} = \int_{A} \vec{B}d\vec{A} = B_{innen} \pi R^2 
+\end{align}
+Jetzt können wir auch die induzierte Spannung einfach darstellen als 
+\begin{align}
+U_{ind} = - \frac{\phi_m}{dt} = - N\pi R^2 \mu_0 \frac{N}{l} \frac{dI}{dt}
+\end{align}
+Damit haben wir uns nun die Induktivität einer langen Spule hergeleitet zu 
+\begin{align}
+L_{Spule} = \mu_0 (\pi R^2l)(\frac{N}{l})^2
+\end{align}
+Dabei ist $\pi R^2l$ das Volumen der Spule 
+
+
+
+
+\subsection{Generatoren und Elektromotor}
+
+Arbeitsweise eines Generators: Umwandlung mechanische Arbeit in elektrische Energie. 
+\\ \\
+\underline{\textbf{Wechselstrom}} \\
+Unter der Annahme das $\vec{B} = const $ gilt 
+\begin{align}
+\phi_m = BA \cos{\omega t} 
+\end{align}
+und damit 
+\begin{align}
+U_{ind} = - \frac{d\phi_m}{dt} = BA\sin{\omega t}
+\end{align}
+In der praktischen Anwendung wird oft ein 3 Phasen Wechselstrom verwendet, wobei die Spannung auf den 3 Spulen jeweils um $\frac{2\pi}{3}$ verschoben sind. 
+
+\subsection{Transformatoren}
+
+Transformatoren sind ein Bauteil der Elektrotechnik und bestehen aus zwei oder mehr Spulen. Ein Transformator wandelt eine Eingangspannung in eine Ausgangsspannung um, die dann an der anderen Spule abgegriffen werden kann. \textbf{Achtung:} Transformatoren funktionieren \textbf{nur} bei Wechselspannung \\ \\
+Die Primärspule ist an der Quelle angeschlossen, an der Sekundärspule kann die transformierte Spannung abgegriffen werden. \\
+Es gibt Transformatoren mit Luftspule (für hochfrequente Ströme) und Transformatoren mit Magnetkern (für Leistungsübertragung). \\ \\
+\underline{\textbf{Funktionsweise}} \\
+1. Eine Wechselspannung auf der Primärseite des Transformators bewirkt entsprechend dem Induktionsgesetz einen wechselnden magnetischen Fluss im Kern. Der wechselnde magnetische Fluss wiederum induziert auf der Sekundärseite des Transformators eine Spannung (Spannungstransformation). \\
+2. Ein Wechselstrom in der Sekundärwicklung bewirkt dem Ampèreschen Gesetz entsprechend einen Wechselstrom in der Primärwicklung (Stromtransformation). \\
+
+\underline{\textbf{Unbelasteter Transformator ( $I_s = 0 ) $}} \\ \\
+Wir finden folgende Beziehung 
+\begin{align}
+\frac{d\phi_m}{dt} \mid_{prim} = k \frac{d\phi_m}{dt} \mid_{sek} 
+\end{align}
+Bei idealen Transformator ist $k = 1$. \\ \\
+Eine sehr wichtige Beziehung ist die Folgende: 
+\begin{align}
+\frac{U_s}{U_p} = - \frac{N_s}{N_p}
+\end{align}
+Dabei stammt das $-$ von der Lenzschen Regel. \\\\
+Im idealen Transformator gilt Energieerhaltung 
+\begin{align}
+P_s = U_sI_s = U_pI_p = P_p
+\end{align}
+Ein unbelasteter Transformator überträgt keine Leistung und verbraucht keine Energie! \\\\
+\underline{\textbf{Belasteter Transformator}} \\
+Das fließen von $I_s$ muss einen Phasenschub zwischen $ I_p $ und $U_p$  erzeugen, denn sonst kann keine Energie erzeugt werden. \\
+Der induzierte magnetische Fluss hat eine andere Phase als der magnetische Fluss, der durch den Primärstrom erzeugt wird. \\
+Man findet folgenden, wichtigen Zusammenhang 
+\begin{align}
+\frac{I_s}{I_p} = - \frac{N_p}{N_s}
+\end{align}
+Die Stromtransformation ist also invers zur Spannungstransformation. \\\\
+\underline{\textbf{Transformatorkerne:}}\\
+Das Magnetmaterial ist wesentlich für die Größe des übertragenen Stroms. \\
+Wir wissen das 
+\begin{align}
+B = \mu_0 (H + M)
+\end{align}
+dabei ist $H$ das von der Spule erzeugte Feld und $M$ der Magnet des Spulenkerns. Für diesen gilt
+\begin{align}
+M = \chi_m(H)H
+\end{align}
+$I_s$ hängt also vom Wert und dem Änderungsvermögen des Magnetkerns ab. \\\\
+In der Realität gilt es zu beachten, das auf Grund von realen Materialien und Abmessungen es zu Verlusten im Magnetkern z.B. durch Wirbelströme kommen kann.
+
+
+\section{Wechselstromschaltkreise}
+
+\subsection{Kirchhoffsche Regeln}
+
+\underline{\textbf{1. Knotenregel}} \\\\
+In jedem Knoten ist die Summe der zu und abfließenden Ströme null (Ladungserhaltung)\\\\
+
+\underline{\textbf{2. Maschenregel}} \\\\
+In geschlossenen Schaltkreisen (Maschen) ist die Summe der Spannungen von Quellen gleich der Summe der Spannungen, die über den Verbraucher abfallen (Energieerhaltung) 
+
+\subsection{Transienten Verhalten}
+
+\underline{\textbf{RC-Schaltkreis}} \\\\
+Für den Einschaltvorgang gilt 
+\begin{align}
+I(t) = I_0\exp(-\frac{t}{RC}) \\
+U(t) = U_0 (1 - \exp(-\frac{t}{RC}))
+\end{align}
+Der Maximalstrom ist dabei 
+\begin{align}
+I_0 = \frac{U_0}{R}
+\end{align}
+Für den Ausschaltvorgang gilt 
+\begin{align}
+I(t) = -I_0\exp(-\frac{t}{RC}) \\
+U(t) = U_0\exp(-\frac{t}{RC})
+\end{align} \\\\\\
+
+
+\underline{\textbf{RL-Schaltkreis}} \\\\
+Für den Einschaltvorgang gilt 
+\begin{align}
+I(t) = I_0 (1 - \exp(-\frac{R}{L} t)) \\
+U(t) = U_0\exp(-\frac{R}{L} t)
+\end{align}
+
+Für den Ausschaltvorgang gilt
+\begin{align}
+I(t) = I_0\exp(-\frac{R}{L} t) \\
+U(t) = - U_0\exp(-\frac{R}{L} t)
+\end{align}
+
+\subsection{Schwingkreise (RLC)}
+
+Durchgeführte Versuche zeigen uns folgende Beobachtungen in einem RLC Schwingkreis: \\
+
+\begin{tabular}[h]{l|l}
+Frequenz & Beobachtung \\
+\hline
+f $<$ 3.2 kHz & L leitet bei niedrigen Frequenzen, C wirkt als starker Widerstand \\
+\hline
+f = 3.2 kHz & Resonanz (überall Stromdurchfluss)\\
+\hline
+f $>$ 3.2 kHz & C leitet bei hohen Frequenzen, L wirkt als starker Widerstand 
+\end{tabular} \\\\
+Wir betrachten im folgenden komplexwertige Spannungen und Ströme 
+\begin{align}
+I(t) = I_0e^{i\omega t} \\
+U(t) = U_0e^{i\omega t + \varphi}
+\end{align}
+Wir definieren uns die Impendanz $z$ $\in$ $\mathbb{C}$ zu
+\begin{align}
+z := \frac{U}{I}
+\end{align}
+Zum Widerstand gilt die Beziehung 
+\begin{align}
+R = Re(z)
+\end{align} \\
+Für die Impendanz von Widerstand ($R$) , Kondensator ($C$) und Spule ($L$) gilt
+\begin{align}
+z_R = R \\
+z_C = \frac{1}{i\omega C} \\
+z_L = i \omega L
+\end{align}
+
+\underline{\textbf{LC Schwingkreise}} \\\\
+Dies ist ein harmonischer Oszillator.
+Die Lösung der DGL ergibt sich zu 
+\begin{align}
+I(t) = I_0e^{i\omega t}
+\end{align}
+mit der Eigenfrequenz der LC-Schwingkreis
+\begin{align}
+\omega_0^2 = \frac{1}{LC}
+\end{align}
+
+\underline{\textbf{RLC Schwingkreis}} \\\\
+Dies ist ein gedämpfter harmonischer Oszillator. Die Lösung der DGL ergibt sich zu 
+\begin{align}
+I(t) = I_0\exp(i\omega t)\exp(- \frac{Rt}{2L})
+\end{align}
+mit der Resonanzfrequenz 
+\begin{align}
+\omega = \sqrt{\omega_0^2 - \frac{R^2}{4L^2}}
+\end{align} \\
+Wir müssen 3 Fälle unterscheiden  \\
+\begin{center}
+\begin{tabular}{c|c}
+$\omega^2 > \frac{R^2}{4L^2}$ & gedämpfter Oszillator \\
+\hline
+$\omega_0^2 = \frac{R^2}{4L^2}$ & kritische Dämpfung \\
+\hline
+$\omega_0^2 < \frac{R^2}{4L^2}$ & Kriechfall 
+\end{tabular}
+\end{center}
+Weitere Formeln die in diesem Zusammenhang oft verwendet werden, aber nicht im Skript enthalten sind: 
+\begin{align}
+T = \frac{2\pi}{\omega} = 2\pi \sqrt{LC} \\
+U_{max} = I \sqrt{\frac{L}{C}} \\
+W_{max} = \frac{1}{2} CU_{max}^2 \\
+W_{max} = \frac{1}{2} LI_{max}^2
+\end{align}
+
+\subsection{Energie im E und B Feld}
+Wir unterscheiden folgendermaßen 
+\begin{align}
+U = 0 \Rightarrow E = 0 \\
+I = max \Rightarrow B = max
+\end{align}
+sowie den umgekehrten Fall. 
+
+\subsection{Gekoppelte Schwingkreise}
+Der getriebene RLC Schwingkreis mit $R$, $L$, $C$ in Serie hat seine Resonanzfrequenz bei $ \omega = \omega_0$. \\ \\
+Für eine Parallelschaltung gilt 
+\begin{align}
+\omega = \sqrt{\frac{1}{LC} - (\frac{R}{L})^2}
+\end{align}
+
+\underline{\textbf{Induktive Kopplung}} \\
+Für die Spannung im Primärkreis ergibt sich folgende Beziehung 
+\begin{align}
+U_1 = i\omega L_1I_1 + i\omega L_{12}I_2 
+\end{align}
+mit 
+\begin{align}
+L_{12} = k\sqrt{L_1L_2}  \quad  , k \in [0,1]
+\end{align}
+Dabei kommt  $i\omega L_1I_1$ aus der Selbstinduktion und $i\omega L_{12}I_2$ aus der gegenseitigen Induktion.  \\
+
+\underline{\textbf{Resonanz im gekoppelten RLC Schwingkreis}} \\
+Bei welcher Frequenz wird $I_1$ bzw. $I_2$ maximal ? \\
+Für $R = 0$ gibt es 2 Resonanzfrequenzen
+\begin{align}
+\omega_+ = \frac{\omega_0}{\sqrt{1-k}} \\
+\omega_- = \frac{\omega_0}{\sqrt{1+k}}
+\end{align}
+
+
+
+
+\section{Elektromagentische Wellen}
+\subsection{Übergang von gekoppelten Oszillatoren zu elektromagnetischen Wellen}
+
+Man erkennt in Versuchen, das die Kopplung auch ohne Kontakt und ohne Eisenkern funktioniert. Die Kopplung der beiden Schwingkreise findet durch \textit{elektromagnetische Wellen} statt. 
+\\ \\
+Eigenschaften Elektromagnetischer Wellen:
+\begin{description}
+\item 1. Haben eine Polarisation
+\item 2. werden von einem Sender in eine bestimmte Richtung abgestrahlt
+\item 3. haben eine Wellenlänge, die von den Eigenschaften des Mediums abhängen
+\item 4. können interferieren und stehenden Wellen ausbilden
+\end{description}
+
+\subsection{Die vollständigen Maxwell-Gleichungen}
+\begin{center}
+\begin{tabular}{c|c|c}
+& im Vakuum & in magnetisierbarer Materie \\
+\hline 
+1. Coulomb Gesetz & $div\vec{E} = \frac{\rho}{\varepsilon_0}$ & $div\vec{D} = \rho$ mit $D = \varepsilon_0\vec{E} + \vec{P}$ \\
+\hline
+2. Gauß Gesetz & $div\vec{B} = 0$ & $div\vec{B} = 0$ mit $\vec{B} = \mu_0 \vec{H} + \mu_0 \vec{M}$ \\
+\hline 
+3. Faraday Gesetz & $rot\vec{E} = - \frac{\partial \vec{B}}{\partial t}$ & $rot\vec{E} = - \frac{\partial \vec{B}}{\partial t}$ \\
+\hline
+4. Ampère-Maxwell Gesetz & $rot\vec{B} = \mu_0 \vec{j} + \mu_0 \varepsilon_0 \frac{\partial \vec{E}}{\partial t}$ & $rot\vec{H} = \vec{j} + \frac{\partial \vec{D}}{\partial t}$
+\end{tabular}
+\end{center}
+
+
+
+
+
+Im linearen Bereich gilt 
+\begin{align}
+\vec{D} = \varepsilon + \varepsilon_0\vec{E} \\
+\vec{B} = \mu_0\mu_R\vec{H}
+\end{align}
+
+\subsubsection{Integral - Theoreme}
+
+\textsc{Gauß - Integral - Theorem} \\
+
+ \begin{equation}
+\int_V (\vec{\nabla} \cdot \vec{F} ) \diff V = \oint_A \vec{F} \cdot \diff \vec{a}
+\end{equation}
+
+Beachte: $\vec{F} = \vec{F}_\perp + \vec{F}_\parallel \rightarrow \vec{F} \cdot \diff \vec{a} = (\vec{F}_\perp + \vec{F}_\parallel) \cdot \diff \vec{a} = \vec{F}_\parallel \cdot \diff \vec{a} $ \\
+
+\textsc{Stokes - Integral - Theorem}
+
+\begin{equation}
+\int_A (\vec{\nabla} \times \vec{F}) \diff \vec{a} = \oint_S F \diff \vec{s}
+\end{equation}
+
+
+
+\subsection{Wellengleichung der elektromagnetischen Welle}
+
+Mit Hilfe der Maxwell-Gleichung lässt sich folgende Beziehung herleiten 
+\begin{align}
+\Delta \vec{E} = \frac{1}{c^2} \frac{\partial^2 \vec{E}}{\partial t^2} 
+\end{align}
+wobei gilt 
+\begin{align}
+c_0 = \frac{1}{\sqrt{\varepsilon_0\mu_0}}
+\end{align}
+und 
+\begin{align}
+c = \frac{c}{\sqrt{\varepsilon_R\mu_R}}
+\end{align}
+Analog finden wir für $\vec{B}$
+\begin{align}
+\Delta \vec{B} = \frac{1}{c^2} \frac{\partial^2 \vec{B}}{\partial t^2} 
+\end{align}
+
+\subsection{Eigenschaften elektromagnetischer Wellen}
+\underline{\textbf{Superpositionsprinzip}} \\\\
+Jede beliebige elektromagnetische Welle kann als Superpostion von harmonischen Wellen ausgedrückt werden. Also kann das elektrische Feld einer elektromagnetischen Welle als 
+\begin{align}
+E(t) = \sum_{i=1}^N  E_i^0(\vec{r}) e^{i(\omega t - k\vec{r})}
+\end{align}
+Dabei steht der Teil in der Summe für eine ebene Welle. \\
+Gleiches gilt auch für das $\vec{B}$ Feld. \\
+Die ebenen, harmonischen Wellen bilden eine vollständige Basis. \\
+
+\underline{\textbf{Ausbreitungsgeschwindigkeit für ebene Wellen}} \\\\
+Für eine ebene Welle in z.B. z-Richtung ergibt sich die Phasengeschwindigkeit 
+\begin{align}
+\omega = ck
+\end{align}
+Dabei ist $k$ der Wellenvektor. \\
+Dieser lässt sich auch in Zusammenhang zur Wellenlänge bringen. Es gilt 
+\begin{align}
+k = \frac{2\pi}{\lambda} 
+\end{align}
+wobei $\lambda$ für die Wellenlänge steht.\\
+Außerdem gilt die Beziehung 
+\begin{align}
+\lambda = \lambda_0 \frac{1}{\sqrt{\varepsilon_R \mu_R}}
+\end{align}
+Für die Ausbreitungsgeschwindigkeit gilt 
+\begin{align}
+v = \frac{\partial w}{\partial k} = c
+\end{align}
+Es ergibt sich außerdem eine direkte Verbindung zur Optik: Für den Brechungsindex $n$ gilt 
+\begin{align}
+n = \frac{c_0}{c} = \sqrt{\varepsilon_R\mu_R}
+\end{align} \\
+
+\underline{\textbf{Abhängigkeit $\vec{E}$ und $\vec{B}$ }} \\\\
+Es gilt sowohl $\vec{B} \perp k$ als auch $\vec{E} \perp k$. Daraus folgt das elektromagnetische Wellen Transversalwellen sind. \\
+
+\underline{\textbf{Polarisation}} \\\\
+Elektromagnetische Wellen haben 2 Polarisationsmöglichkeiten, entweder vertikal oder horizontal. 
+
+\subsection{Stehende Welle}
+
+Stehende Wellen entstehen entweder, wenn sich 2 gegeneinander laufende Wellen überlagern oder durch Reflexion z.B. an einer Wand. \\\\
+Stehende Wellen haben ortsfeste Knoten und Bäuche. \\\\
+Bei einer stehenden Welle sind $\vec{B}$ und $\vec{E}$ verschoben, während sie bei einer normalen Welle in Phase laufen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+%Zeile Tausend Jetzt nicht mehr
